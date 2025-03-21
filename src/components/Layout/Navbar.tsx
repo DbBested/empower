@@ -55,6 +55,10 @@ const NavLink = styled(Link)`
   &:hover {
     color: ${({ theme }) => theme.colors.crab};
   }
+
+  &.active {
+    color: ${({ theme }) => theme.colors.crab};
+  }
 `;
 
 const JoinButton = styled(Link)`
@@ -83,20 +87,21 @@ const MenuButton = styled.button`
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <Nav>
       <NavContainer>
-        <Logo to="/">Empower</Logo>
+        <Logo to="/" onClick={closeMenu}>Empower</Logo>
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? '✕' : '☰'}
         </MenuButton>
         <NavLinks isOpen={isMenuOpen}>
-          <NavLink to="/webinars">Webinars</NavLink>
-          <NavLink to="/our-team">Our Team</NavLink>
-          <NavLink to="/resources">Resources</NavLink>
-          <NavLink to="/tutoring">Tutoring</NavLink>
-          <JoinButton to="/join-us">Join Us</JoinButton>
+          <NavLink to="/webinars" onClick={closeMenu}>Webinars</NavLink>
+          <NavLink to="/our-team" onClick={closeMenu}>Our Team</NavLink>
+          <NavLink to="/resources" onClick={closeMenu}>Resources</NavLink>
+          <NavLink to="/tutoring" onClick={closeMenu}>Tutoring</NavLink>
+          <JoinButton to="/join-us" onClick={closeMenu}>Join Us</JoinButton>
         </NavLinks>
       </NavContainer>
     </Nav>

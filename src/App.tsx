@@ -4,6 +4,11 @@ import { theme } from './styles/theme';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { Layout } from './components/Layout/Layout';
 import { Home } from './pages/Home';
+import { Webinars } from './pages/Webinars';
+import { OurTeam } from './pages/OurTeam';
+import { Resources } from './pages/Resources';
+import { Tutoring } from './pages/Tutoring';
+import { JoinUs } from './pages/JoinUs';
 import styled from 'styled-components';
 
 const AppWrapper = styled.div`
@@ -12,13 +17,6 @@ const AppWrapper = styled.div`
   padding: 0;
   overflow-x: hidden;
 `;
-
-// Placeholder components for other pages
-const Webinars = () => <h1>Webinars Page</h1>;
-const OurTeam = () => <h1>Our Team Page</h1>;
-const Resources = () => <h1>Resources Page</h1>;
-const Tutoring = () => <h1>Tutoring Page</h1>;
-const JoinUs = () => <h1>Join Us Page</h1>;
 
 function App() {
   return (
