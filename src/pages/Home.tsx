@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
+import animationData from '../assets/animation.json';
 
 const PageWrapper = styled.div`
   display: flex;
@@ -40,16 +42,11 @@ const HeroImage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
+  max-width: 600px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     margin-top: ${({ theme }) => theme.spacing.xl};
+    max-width: 400px;
   }
 `;
 
@@ -217,7 +214,11 @@ export const Home = () => {
             </CTAContainer>
           </HeroContent>
           <HeroImage>
-            <img src="/hero-image.jpg" alt="Local Tutoring" />
+            <Lottie 
+              animationData={animationData}
+              loop={true}
+              style={{ width: '100%', height: '100%' }}
+            />
           </HeroImage>
         </HeroContainer>
       </Hero>
