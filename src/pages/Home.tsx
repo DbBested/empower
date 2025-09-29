@@ -89,6 +89,7 @@ const PrimaryButton = styled(Link)`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.crab};
+	color: ${({ theme }) => theme.colors.white};
   }
 `;
 

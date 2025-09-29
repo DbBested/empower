@@ -24,25 +24,39 @@ export const OurTeam = () => {
   const teamMembers = [
     {
       name: "Vienna Dschung",
-      role: "Founder & Lead Mentor",
-      description: "Passionate about education and helping students reach their full potential.",
-      email: "vienna@example.com", // Replace with actual email
-      imageUrl: "/team/vienna.jpg" // Add actual image path
+      role: "Founder & President",
+      description: "Vienna founded Empower Initiative during her sophomore year of high school and remains deeply committed to this cause. As an oldest sibling, she has many years of experience tutoring younger kids. In school, Vienna has taken over 12 AP and dual enrollment classes, with a special interest in history and math. Outside of school, Vienna pursues many interests, such as serving on the Youth Council of the Asian American Pacific Islanders Commission, working with local nonprofit organizations, and advocating for plant-based food in schools.",
+      email: "vz1689@hotmail.com", // Replace with actual email
+      imageUrl: "/public/team/vienna.jpg" // Add actual image path
     },
-    {
-      name: "Pammela",
-      role: "Senior Mentor",
+	{
+      name: "Kirsten Choi",
+      role: "Vice President",
       description: "Experienced educator specializing in personalized learning approaches.",
       email: "pammela@example.com", // Replace with actual email
-      imageUrl: "/team/pammela.jpg" // Add actual image path
+      imageUrl: "/team/kirsten.jpg" // Add actual image path
     },
     {
-      name: "Team Member 3",
-      role: "Mentor",
+      name: "Pamela Hao",
+      role: "Event Coordinator",
+      description: "Experienced educator specializing in personalized learning approaches.",
+      email: "pammela@example.com", // Replace with actual email
+      imageUrl: "/team/pamela.jpg" // Add actual image path
+    },
+    {
+      name: "Zoey Ying",
+      role: "Historian",
       description: "Dedicated to creating engaging learning experiences for students.",
       email: "mentor3@example.com",
       imageUrl: "/team/placeholder.jpg"
-    }
+    },
+    {
+      name: "Anlin Huang",
+      role: "Treasurer",
+      description: "Anlin has been a tutor at Empower Initiative for over a year. Over that time, she has built strong connections with the students she has worked with and helped many of them to succeed in their courses. Anlin is very passionate about educational equality, and loves working with children to help them reach their full potential. Aside from Empower Initiative, Anlin serves as treasurer in the Class of 2028 student government, as well as the financial department head of the Angel Dance Youth League, where she helps to spread the culture of Chinese Traditional Dance across the community. Anlin is an All-State violist and plays in the Boston Youth Symphony Orchestras, and in her free time, she enjoys painting, playing with her chickens, and spending time with her family.",
+      email: "mentor3@example.com",
+      imageUrl: "/team/placeholder.jpg"
+    },
   ];
 
   return (

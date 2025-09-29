@@ -22,7 +22,7 @@ const Description = styled.p`
 
 const JoinButton = styled.a`
   display: inline-block;
-  background-color: ${({ theme }) => theme.colors.crab};
+  background-color: ${({ theme }) => theme.colors.deepOcean};
   color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.xl}`};
   border-radius: 4px;
@@ -33,7 +33,8 @@ const JoinButton = styled.a`
   margin-top: ${({ theme }) => theme.spacing.lg};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.deepOcean};
+    background-color: ${({ theme }) => theme.colors.crab};
+  	color: ${({ theme }) => theme.colors.white};
   }
 `;
 

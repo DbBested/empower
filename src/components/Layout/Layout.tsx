@@ -111,7 +111,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <FooterSection>
             <h4>Connect</h4>
             <ul>
-              <li><a href="https://twitter.com">Twitter</a></li>
+              <li><a href="https://www.instagram.com/empower_init">Instagram</a></li>
               <li><a href="https://linkedin.com">LinkedIn</a></li>
               <li><a href="https://github.com">GitHub</a></li>
             </ul>

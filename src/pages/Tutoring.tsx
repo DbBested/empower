@@ -52,7 +52,7 @@ const CTASection = styled.div`
 
 const CTAButton = styled(Link)`
   display: inline-block;
-  background-color: ${({ theme }) => theme.colors.crab};
+  background-color: ${({ theme }) => theme.colors.deepOcean};
   color: ${({ theme }) => theme.colors.white};
   padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
   border-radius: 4px;
@@ -62,7 +62,8 @@ const CTAButton = styled(Link)`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.deepOcean};
+    background-color: ${({ theme }) => theme.colors.crab};
+  	color: ${({ theme }) => theme.colors.white};
   }
 `;
 

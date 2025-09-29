@@ -20,11 +20,31 @@ const NavContainer = styled.div`
   align-items: center;
 `;
 
-const Logo = styled(Link)`
-  font-family: ${({ theme }) => theme.fonts.heading};
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.deepOcean};
+const LogoContainer = styled(Link)`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-family: ${({ theme }) => theme.fonts.heading};
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: ${({ theme }) => theme.colors.deepOcean};
+`;
+
+const LogoImage = styled.div`
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.sandDollar};
+  margin-right: .5rem;
+  transition: transform 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const NavLinks = styled.div<{ isOpen: boolean }>`
@@ -72,6 +92,7 @@ const JoinButton = styled(Link)`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.crab};
+  	color: ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -92,7 +113,10 @@ export const Navbar = () => {
   return (
     <Nav>
       <NavContainer>
-        <Logo to="/" onClick={closeMenu}>Empower</Logo>
+		<LogoContainer to="/" onClick={closeMenu}>
+			<LogoImage><img src="/logo.png" alt="Logo" /></LogoImage>
+			Empower
+		</LogoContainer>
         <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? '✕' : '☰'}
         </MenuButton>
