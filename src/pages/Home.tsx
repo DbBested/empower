@@ -75,14 +75,14 @@ export const Home = () => {
             <p className='text-gray mx-auto lg:m-0 mb-5 text-lg max-w-2xl'>
               Join our community of passionate educators and eager learners to create meaningful connections and foster academic success in your neighborhood
             </p>
-            <div className='grid grid-cols-[1fr] lg:grid-cols-3 gap-3 lg:gap-4 mt-10 text-center'>
+            <div className='grid grid-cols-3 gap-3 lg:gap-4 mt-10 text-center'>
               <Stat title="70+" label="Children Supported" />
               <Stat title="160+" label="Parents Connected" />
               <Stat title="10%" label="School Volunteers" />
             </div>
             <div className='flex gap-4 mt-10 justify-center lg:justify-start'>
-              <Link className='button-primary p-2 lg:p-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
-              <Link className='button-secondary p-2 lg:p-4 rounded-md font-bold text-lg' to="/tutoring">Become a Tutor</Link>
+              <Link className='button-primary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
+              <Link className='button-secondary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/tutoring">Become a Tutor</Link>
             </div>
           </div>
           <Slideshow images={['/tutorimage/img1.jpg','/tutorimage/img2.jpg','/tutorimage/img3.jpg']} interval={4500} />

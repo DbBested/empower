@@ -38,30 +38,29 @@ export default function Slideshow({ images, interval = 4000 }: Props) {
 
 	return (
 		<div
-			className="flex-1 flex justify-center items-center max-w-[600px] relative"
+			className="flex-1 flex justify-center items-center mt-10 lg:mt-0 w-[80vw] lg:w-auto h-[320px] md:h-[420px] relative"
 			onMouseEnter={() => stop()}
 			onMouseLeave={() => start()}
 			aria-roledescription="carousel"
 		>
 			{/* stacked slides for fade transition - fixed box and clip overflow so images are contained */}
 			<div className="w-full max-w-[600px] h-[320px] md:h-[420px] relative overflow-hidden rounded-lg bg-gray-100">
-						{slides.map((src, i) => (
-							<div
-								key={i}
-								className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-									i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
-								}`}
-							>
-								<div className="w-full h-full flex items-center justify-center">
-									<img
-										src={src}
-										alt={`slide-${i}`}
-										loading="lazy"
-										className="min-w-full min-h-full object-cover"
-									/>
-								</div>
-							</div>
-						))}
+				{slides.map((src, i) => (
+					<div
+						key={i}
+						className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+							}`}
+					>
+						<div className="w-full h-full flex items-center justify-center">
+							<img
+								src={src}
+								alt={`slide-${i}`}
+								loading="lazy"
+								className="min-w-full min-h-full object-cover"
+							/>
+						</div>
+					</div>
+				))}
 
 				<div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 items-center justify-center w-auto px-2 z-20">
 					{slides.map((_, i) => (
