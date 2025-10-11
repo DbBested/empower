@@ -81,21 +81,6 @@ const MyNavLink = styled(NavLink)`
   }
 `;
 
-const JoinButton = styled(Link)`
-  background-color: ${({ theme }) => theme.colors.deepOcean};
-  color: ${({ theme }) => theme.colors.white};
-  padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.md}`};
-  border-radius: 4px;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-  font-family: ${({ theme }) => theme.fonts.body};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.crab};
-  	color: ${({ theme }) => theme.colors.white};
-  }
-`;
-
 const MenuButton = styled.button`
   display: none;
   font-size: 1.5rem;
