@@ -1,113 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Lottie from 'lottie-react';
-import animationData from '../assets/animation.json';
+import Slideshow from '../components/Slideshow';
 
-const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
 
-const Hero = styled.section`
-  background-color: ${({ theme }) => theme.colors.sandDollar};
-  padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  width: 100%;
-`;
 
-const HeroContainer = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 ${({ theme }) => theme.spacing.lg};
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing.xl};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    flex-direction: column;
-    text-align: center;
-  }
-`;
-
-const HeroContent = styled.div`
-  flex: 1;
-`;
-
-const HeroImage = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 600px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin-top: ${({ theme }) => theme.spacing.xl};
-    max-width: 400px;
-  }
-`;
-
-const Title = styled.h1`
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  color: ${({ theme }) => theme.colors.deepOcean};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
-`;
-
-const Subtitle = styled.p`
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: ${({ theme }) => theme.colors.gray};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
-  max-width: 600px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin-left: auto;
-    margin-right: auto;
-  }
-`;
-
-const CTAContainer = styled.div`
-  display: flex;
-  gap: ${({ theme }) => theme.spacing.md};
-  margin-top: ${({ theme }) => theme.spacing.xl};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    justify-content: center;
-  }
-`;
-
-const PrimaryButton = styled(Link)`
-  background-color: ${({ theme }) => theme.colors.deepOcean};
-  color: ${({ theme }) => theme.colors.white};
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.crab};
-	color: ${({ theme }) => theme.colors.white};
-  }
-`;
-
-const SecondaryButton = styled(Link)`
-  background-color: transparent;
-  color: ${({ theme }) => theme.colors.deepOcean};
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: 2px solid ${({ theme }) => theme.colors.deepOcean};
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.deepOcean};
-    color: ${({ theme }) => theme.colors.white};
-  }
-`;
 
 const Features = styled.section`
   padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
@@ -158,71 +54,40 @@ const FeatureCard = styled.div`
   }
 `;
 
-const ImpactNumbers = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: ${({ theme }) => theme.spacing.xl};
-  margin-top: ${({ theme }) => theme.spacing.xl};
-  text-align: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
-    gap: ${({ theme }) => theme.spacing.lg};
-  }
-`;
 
-const ImpactStat = styled.div`
-  h3 {
-    color: ${({ theme }) => theme.colors.crab};
-    font-size: 2.5rem;
-    margin-bottom: ${({ theme }) => theme.spacing.xs};
-  }
-
-  p {
-    color: ${({ theme }) => theme.colors.deepOcean};
-    font-size: 1.1rem;
-    margin: 0;
-  }
-`;
+const Stat = ({title, label}: {title: string; label: string}) => {
+	return (
+		<div>
+			<h2 className='text-crab'>{title}</h2>
+			<p className='text-deep-ocean text-lg m-0'>{label}</p>
+		</div>
+	);
+}
 
 export const Home = () => {
   return (
-    <PageWrapper>
-      <Hero>
-        <HeroContainer>
-          <HeroContent>
-            <Title>Connecting Local Students with Expert Tutors</Title>
-            <Subtitle>
+    <div className='flex flex-col w-full'>
+      <div className='bg-rose-50 p-10 lg:p-20 min-h-[60vh] flex items-center w-full'>
+        <div className='w-full mx-auto px-5 text-center lg:text-left flex flex-col lg:flex-row items-center gap-3'>
+          <div className='flex-1'>
+            <h1 className='text-deep-ocean mb-3'>Connecting Local Students with Expert Tutors</h1>
+            <p className='text-gray mx-auto lg:m-0 mb-5 text-lg max-w-2xl'>
               Join our community of passionate educators and eager learners to create meaningful connections and foster academic success in your neighborhood
-            </Subtitle>
-            <ImpactNumbers>
-              <ImpactStat>
-                <h3>70+</h3>
-                <p>Children Supported</p>
-              </ImpactStat>
-              <ImpactStat>
-                <h3>160+</h3>
-                <p>Parents Connected</p>
-              </ImpactStat>
-              <ImpactStat>
-                <h3>10%</h3>
-                <p>School Volunteers</p>
-              </ImpactStat>
-            </ImpactNumbers>
-            <CTAContainer>
-              <PrimaryButton to="/join-us">Find a Tutor</PrimaryButton>
-              <SecondaryButton to="/tutoring">Become a Tutor</SecondaryButton>
-            </CTAContainer>
-          </HeroContent>
-          <HeroImage>
-            <Lottie 
-              animationData={animationData}
-              loop={true}
-              style={{ width: '100%', height: '100%' }}
-            />
-          </HeroImage>
-        </HeroContainer>
-      </Hero>
+            </p>
+            <div className='grid grid-cols-[1fr] lg:grid-cols-3 gap-3 lg:gap-4 mt-10 text-center'>
+              <Stat title="70+" label="Children Supported" />
+              <Stat title="160+" label="Parents Connected" />
+              <Stat title="10%" label="School Volunteers" />
+            </div>
+            <div className='flex gap-4 mt-10 justify-center lg:justify-start'>
+              <Link className='button-primary p-2 lg:p-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
+              <Link className='button-secondary p-2 lg:p-4 rounded-md font-bold text-lg' to="/tutoring">Become a Tutor</Link>
+            </div>
+          </div>
+          <Slideshow images={['/tutorimage/img1.jpg','/tutorimage/img2.jpg','/tutorimage/img3.jpg']} interval={4500} />
+        </div>
+      </div>
 
       <Features>
         <FeaturesGrid>
@@ -244,6 +109,6 @@ export const Home = () => {
           </FeatureCard>
         </FeaturesGrid>
       </Features>
-    </PageWrapper>
+    </div>
   );
 }; 
