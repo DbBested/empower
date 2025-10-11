@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { useState } from 'react';
 
@@ -66,7 +66,7 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
   }
 `;
 
-const NavLink = styled(Link)`
+const MyNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.black};
   font-weight: 500;
   transition: color 0.2s ease;
@@ -121,12 +121,12 @@ export const Navbar = () => {
 					{isMenuOpen ? '✕' : '☰'}
 				</MenuButton>
 				<NavLinks isOpen={isMenuOpen}>
-					<NavLink to="/webinars" onClick={closeMenu}>Webinars</NavLink>
-					<NavLink to="/our-team" onClick={closeMenu}>Our Team</NavLink>
-					<NavLink to="/resources" onClick={closeMenu}>Resources</NavLink>
-					<NavLink to="/tutoring" onClick={closeMenu}>Tutoring</NavLink>
-					<NavLink to="/donate" onClick={closeMenu}>Donate</NavLink>
-					<JoinButton to="/join-us" onClick={closeMenu}>Join Us</JoinButton>
+					<MyNavLink to="/webinars" onClick={closeMenu}>Webinars</MyNavLink>
+					<MyNavLink to="/our-team" onClick={closeMenu}>Our Team</MyNavLink>
+					<MyNavLink to="/resources" onClick={closeMenu}>Resources</MyNavLink>
+					<MyNavLink to="/tutoring" onClick={closeMenu}>Tutoring</MyNavLink>
+					<MyNavLink to="/donate" onClick={closeMenu}>Donate</MyNavLink>
+					<Link className='button-primary py-2 px-6 font-semibold rounded-sm' to="/join-us" onClick={closeMenu}>Join Us</Link>
 				</NavLinks>
 			</NavContainer>
 		</Nav>

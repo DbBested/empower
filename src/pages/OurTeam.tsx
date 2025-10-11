@@ -33,34 +33,34 @@ export const OurTeam = () => {
       name: "Kirsten Choi",
       role: "Vice President",
       description: "Experienced educator specializing in personalized learning approaches.",
-      email: "pammela@example.com", // Replace with actual email
+      email: "kirsten@example.com", // Replace with actual email
       imageUrl: "/team/kirsten.jpg" // Add actual image path
     },
     {
       name: "Pamela Hao",
       role: "Event Coordinator",
       description: "Experienced educator specializing in personalized learning approaches.",
-      email: "pammela@example.com", // Replace with actual email
+      email: "pamela@example.com", // Replace with actual email
       imageUrl: "/team/pamela.jpg" // Add actual image path
     },{
       name: "Eric Mu",
       role: "Secretary",
       description: "Experienced educator specializing in personalized learning approaches.",
-      email: "pammela@example.com", // Replace with actual email
-      imageUrl: "/team/pamela.jpg" // Add actual image path
+      email: "eric@example.com", // Replace with actual email
+      imageUrl: "/team/eric.jpg" // Add actual image path
     },
     {
       name: "Anlin Huang",
       role: "Treasurer",
       description: "Anlin has been a tutor at Empower Initiative for over a year. Over that time, she has built strong connections with the students she has worked with and helped many of them to succeed in their courses. Anlin is very passionate about educational equality, and loves working with children to help them reach their full potential. Aside from Empower Initiative, Anlin serves as treasurer in the Class of 2028 student government, as well as the financial department head of the Angel Dance Youth League, where she helps to spread the culture of Chinese Traditional Dance across the community. Anlin is an All-State violist and plays in the Boston Youth Symphony Orchestras, and in her free time, she enjoys painting, playing with her chickens, and spending time with her family.",
-      email: "mentor3@example.com",
+      email: "anlin@example.com",
       imageUrl: "/team/anlin.png"
     },
     {
       name: "Zoey Ying",
       role: "Historian",
       description: "Zoey has been an active member of Empower Initiative for over a year. She has worked with many different kids, building bonds and helping them thrive in their academic endeavors. By doing so, she has experience in tutoring and helping kids of different ages and abilities. Zoey also challenges herself by taking two languages, Latin and French, as well as speaking Cantonese with her parents at home. Outside of Empower Initiative, Zoey does ballet and plays the viola. In her free time, Zoey enjoys crocheting, serving her community, hanging out with her family and friends, baking as well as reading books.",
-      email: "mentor3@example.com",
+      email: "zoey@example.com",
       imageUrl: "/team/zoey.jpg"
     },
   ];

@@ -19,7 +19,7 @@
 		@apply font-poppins;
 	}
 	h1 {
-		@apply text-4xl lg:text-6xl font-extrabold
+		@apply text-4xl lg:text-6xl/18 font-bold 
 	}
 	h2 {
 		@apply text-3xl lg:text-5xl font-bold
@@ -28,13 +28,13 @@
 		@apply text-xl lg:text-2xl font-semibold
 	}
 	.button-primary, .button-secondary {
-		@apply transition-colors ease-in-out duration-300;
+		@apply transition-all ease-in-out duration-300 hover:brightness-80;
 	}
 	.button-primary{
-		@apply bg-blue-600 hover:bg-blue-500 text-white;
+		@apply  bg-blue-600 text-white;
 	}
 	.button-secondary {
-		@apply ring-1 ring-blue-600 bg-transparent hover:bg-white text-blue-600;
+		@apply  ring-1 ring-blue-600 bg-rose-50 text-blue-600;
 	}
 }
 

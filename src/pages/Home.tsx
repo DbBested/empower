@@ -81,8 +81,8 @@ export const Home = () => {
               <Stat title="10%" label="School Volunteers" />
             </div>
             <div className='flex gap-4 mt-10 justify-center lg:justify-start'>
-              <Link className='button-primary p-2 lg:p-4 rounded-lg font-bold text-lg' to="/join-us">Find a Tutor</Link>
-              <Link className='button-secondary p-2 lg:p-4 rounded-lg font-bold text-lg' to="/tutoring">Become a Tutor</Link>
+              <Link className='button-primary p-2 lg:p-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
+              <Link className='button-secondary p-2 lg:p-4 rounded-md font-bold text-lg' to="/tutoring">Become a Tutor</Link>
             </div>
           </div>
           <Slideshow images={['/tutorimage/img1.jpg','/tutorimage/img2.jpg','/tutorimage/img3.jpg']} interval={4500} />
