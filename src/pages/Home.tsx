@@ -1,21 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Lottie from 'lottie-react';
-import animationData from '../assets/animation.json';
+import Slideshow from '../components/Slideshow';
 
 
-const HeroImage = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 600px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    margin-top: ${({ theme }) => theme.spacing.xl};
-    max-width: 400px;
-  }
-`;
 
 const Features = styled.section`
   padding: ${({ theme }) => `${theme.spacing.xl} ${theme.spacing.lg}`};
@@ -71,7 +59,7 @@ const FeatureCard = styled.div`
 const Stat = ({title, label}: {title: string; label: string}) => {
 	return (
 		<div>
-			<h3 className='text-crab font-semibold text-5xl'>{title}</h3>
+			<h2 className='text-crab'>{title}</h2>
 			<p className='text-deep-ocean text-lg m-0'>{label}</p>
 		</div>
 	);
@@ -97,13 +85,7 @@ export const Home = () => {
               <Link className='button-secondary p-2 lg:p-4 rounded-lg font-bold text-lg' to="/tutoring">Become a Tutor</Link>
             </div>
           </div>
-          <HeroImage>
-            <Lottie 
-              animationData={animationData}
-              loop={true}
-              style={{ width: '100%', height: '100%' }}
-            />
-          </HeroImage>
+          <Slideshow images={['/hero-image.jpg', '/team/vienna.JPG', '/logo.png']} interval={4500} />
         </div>
       </div>
 

@@ -71,7 +71,7 @@ export const Tutoring = () => {
   const services = [
     {
       title: "English Language Learning",
-      description: "Specialized tutoring for Chinese students learning English, focusing on conversation, writing, and comprehension skills."
+      description: "Specialized tutoring for immigrant students learning English, focusing on conversation, writing, and comprehension skills."
     },
     {
       title: "Academic Support",
@@ -91,10 +91,7 @@ export const Tutoring = () => {
     <PageContainer>
       <Title>Our Tutoring Services</Title>
       <Description>
-        Our dedicated tutors specialize in providing personalized education support, 
-        with a focus on helping Chinese students master English and excel in their academic journey. 
-        We create a supportive, engaging environment that promotes both language acquisition and 
-        cultural understanding.
+        Empower Initiative was created to assist immigrant students who struggle with English as a second language. However, we’ve expanded to tutoring all academic subjects at varying levels, from learning how to read to competition math. Volunteers in the past have even expanded to teaching chess and practicing conversation skills!
       </Description>
       
       <ServicesGrid>
