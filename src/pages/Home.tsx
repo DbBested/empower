@@ -85,7 +85,7 @@ export const Home = () => {
               <Link className='button-secondary p-2 lg:p-4 rounded-lg font-bold text-lg' to="/tutoring">Become a Tutor</Link>
             </div>
           </div>
-          <Slideshow images={['/hero-image.jpg', '/team/vienna.JPG', '/logo.png']} interval={4500} />
+          <Slideshow images={['/tutorimage/img1.jpg','/tutorimage/img2.jpg','/tutorimage/img3.jpg']} interval={4500} />
         </div>
       </div>
 
