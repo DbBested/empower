@@ -107,27 +107,28 @@ const MenuButton = styled.button`
 `;
 
 export const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const closeMenu = () => setIsMenuOpen(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const closeMenu = () => setIsMenuOpen(false);
 
-  return (
-    <Nav>
-      <NavContainer>
-		<LogoContainer to="/" onClick={closeMenu}>
-			<LogoImage><img src="/logo.png" alt="Logo" /></LogoImage>
-			Empower
-		</LogoContainer>
-        <MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? '✕' : '☰'}
-        </MenuButton>
-        <NavLinks isOpen={isMenuOpen}>
-          <NavLink to="/webinars" onClick={closeMenu}>Webinars</NavLink>
-          <NavLink to="/our-team" onClick={closeMenu}>Our Team</NavLink>
-          <NavLink to="/resources" onClick={closeMenu}>Resources</NavLink>
-          <NavLink to="/tutoring" onClick={closeMenu}>Tutoring</NavLink>
-          <JoinButton to="/join-us" onClick={closeMenu}>Join Us</JoinButton>
-        </NavLinks>
-      </NavContainer>
-    </Nav>
-  );
+	return (
+		<Nav>
+			<NavContainer>
+				<LogoContainer to="/" onClick={closeMenu}>
+					<LogoImage><img src="/logo.png" alt="Logo" /></LogoImage>
+					Empower
+				</LogoContainer>
+				<MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
+					{isMenuOpen ? '✕' : '☰'}
+				</MenuButton>
+				<NavLinks isOpen={isMenuOpen}>
+					<NavLink to="/webinars" onClick={closeMenu}>Webinars</NavLink>
+					<NavLink to="/our-team" onClick={closeMenu}>Our Team</NavLink>
+					<NavLink to="/resources" onClick={closeMenu}>Resources</NavLink>
+					<NavLink to="/tutoring" onClick={closeMenu}>Tutoring</NavLink>
+					<NavLink to="/donate" onClick={closeMenu}>Donate</NavLink>
+					<JoinButton to="/join-us" onClick={closeMenu}>Join Us</JoinButton>
+				</NavLinks>
+			</NavContainer>
+		</Nav>
+	);
 }; 

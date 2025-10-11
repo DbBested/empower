@@ -22,19 +22,20 @@ function App() {
   return (
     <AppWrapper>
       <ThemeProvider theme={theme}>
+		<Router>
+		<Layout>
+			<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/webinars" element={<Webinars />} />
+			<Route path="/our-team" element={<OurTeam />} />
+			<Route path="/resources" element={<Resources />} />
+			<Route path="/tutoring" element={<Tutoring />} />
+			<Route path="/join-us" element={<JoinUs />} />
+			<Route path="/donate" element={<div className='p-20 text-center'>Donate Page Coming Soon!</div>} />
+			</Routes>
+		</Layout>
+		</Router>
         <GlobalStyles />
-        <Router>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/webinars" element={<Webinars />} />
-              <Route path="/our-team" element={<OurTeam />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/tutoring" element={<Tutoring />} />
-              <Route path="/join-us" element={<JoinUs />} />
-            </Routes>
-          </Layout>
-        </Router>
       </ThemeProvider>
     </AppWrapper>
   );
