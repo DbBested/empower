@@ -1,18 +1,5 @@
 import styled from 'styled-components';
 
-const TeamMemberCard = styled.div`
-  text-align: center;
-  padding: ${({ theme }) => theme.spacing.lg};
-  background-color: ${({ theme }) => theme.colors.white};
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-`;
-
 const MemberImage = styled.div`
   width: 200px;
   height: 200px;
@@ -63,7 +50,7 @@ interface TeamMemberProps {
 
 export const TeamMember = ({ name, role, description, email, imageUrl }: TeamMemberProps) => {
   return (
-    <TeamMemberCard>
+    <div className='first:col-span-full ring-1 ring-gray-100 text-center p-6 bg-white rounded-xl shadow-md transition-transform ease-in-out duration-200 hover:-translate-y-1'>
       <MemberImage>
         {imageUrl && <img src={imageUrl} alt={name} />}
       </MemberImage>
@@ -71,6 +58,6 @@ export const TeamMember = ({ name, role, description, email, imageUrl }: TeamMem
       <MemberRole>{role}</MemberRole>
       <MemberDescription>{description}</MemberDescription>
       <MemberEmail href={`mailto:${email}`}>{email}</MemberEmail>
-    </TeamMemberCard>
+    </div>
   );
 }; 

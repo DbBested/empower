@@ -4,20 +4,13 @@ import { TeamMember } from '../components/TeamMember';
 const PageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${({ theme }) => theme.spacing.xl};
+  padding: ${({ theme }) => theme.spacing.md};
 `;
 
 const Title = styled.h1`
   color: ${({ theme }) => theme.colors.deepOcean};
   margin-bottom: ${({ theme }) => theme.spacing.lg};
   text-align: center;
-`;
-
-const TeamGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: ${({ theme }) => theme.spacing.xl};
-  margin-top: ${({ theme }) => theme.spacing.xl};
 `;
 
 export const OurTeam = () => {
@@ -63,12 +56,19 @@ export const OurTeam = () => {
       email: "zoey@example.com",
       imageUrl: "/team/zoey.jpg"
     },
+    {
+      name: "Dohun Kim",
+      role: "Website Coordinator",
+      description: "Cool dude",
+      email: "genius0412.tech@gmail.com",
+      imageUrl: "/team/dohun.jpg"
+    },
   ];
 
   return (
     <PageContainer>
       <Title>Meet Our Team</Title>
-      <TeamGrid>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8'>
         {teamMembers.map((member, index) => (
           <TeamMember
             key={index}
@@ -79,7 +79,7 @@ export const OurTeam = () => {
             imageUrl={member.imageUrl}
           />
         ))}
-      </TeamGrid>
+      </div>
     </PageContainer>
   );
 }; 
