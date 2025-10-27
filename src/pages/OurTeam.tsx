@@ -7,12 +7,6 @@ const PageContainer = styled.div`
   padding: ${({ theme }) => theme.spacing.md};
 `;
 
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.deepOcean};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
-  text-align: center;
-`;
-
 export const OurTeam = () => {
   const teamMembers = [
     {
