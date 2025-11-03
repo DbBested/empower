@@ -26,9 +26,9 @@ export const OurTeam = () => {
     {
       name: "Pamela Hao",
       role: "Event Coordinator",
-      description: "Experienced educator specializing in personalized learning approaches.",
+      description: "Pamela has worked at Empower Initiative since its founding at Weston High School. She enjoys helping students understand complex concepts and develop their problem-solving skills. Pamela has helped students with various subjects, particularly math and Spanish. As a sophomore, Pamela got a 5 on her AP Calc BC exam, took AP Chemistry as a junior, and continues to challenge herself with college-level classes with dual enrollment math. Furthermore, she received the high honors award from the US National Chemistry Olympiad.",
       email: "pamela@example.com", // Replace with actual email
-      imageUrl: "/team/pamela.jpg" // Add actual image path
+      imageUrl: "/team/Pamela.png" // Add actual image path
     },{
       name: "Eric Mu",
       role: "Secretary",
@@ -47,15 +47,15 @@ export const OurTeam = () => {
       name: "Zoey Ying",
       role: "Historian",
       description: "Zoey has been an active member of Empower Initiative for over a year. She has worked with many different kids, building bonds and helping them thrive in their academic endeavors. By doing so, she has experience in tutoring and helping kids of different ages and abilities. Zoey also challenges herself by taking two languages, Latin and French, as well as speaking Cantonese with her parents at home. Outside of Empower Initiative, Zoey does ballet and plays the viola. In her free time, Zoey enjoys crocheting, serving her community, hanging out with her family and friends, baking as well as reading books.",
-      email: "28yingz@weston.org",
+      email: "zoeysying@gmail.com",
       imageUrl: "/team/zoey.jpg"
     },
     {
       name: "Dohun Kim",
       role: "Website Coordinator",
-      description: "Cool dude",
+      description: "Dohun has been a tutor at Empower Initiative for over a year. He likes to support students tackling difficult concepts through asking guiding questions instead of directly teaching them. He has experience in teaching a wide range of subjects from novice Spanish to chess and competition math. Outside of the Empower Initiative, he has mentored less experienced 4th graders to advanced 7th grade students in First Lego League. In his freshman year, Dohun has gotten a 5 on the AP Calculus BC and Computer Science A exams, 141 on AMC 10A, and a 9 on the AIME.",
       email: "genius0412.tech@gmail.com",
-      imageUrl: "/team/dohun.jpg"
+      imageUrl: "/team/DohunKim.JPG"
     },
   ];
 
