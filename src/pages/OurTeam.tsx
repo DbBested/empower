@@ -19,8 +19,8 @@ export const OurTeam = () => {
 	{
       name: "Kirsten Choi",
       role: "Vice President",
-      description: "Experienced educator specializing in personalized learning approaches.",
-      email: "kirsten@example.com", // Replace with actual email
+      description: "Kirsten Choi is a senior at Weston High School and an active leader in her community. At school, she serves in student government and student council, and is the vice president and co-founder of the Empower Initiative, a tutoring club dedicated to supporting others. Beyond the classroom, Kirsten is a member of her school’s Varsity Soccer team and plays cello with the Boston Youth Symphony Orchestra. She hopes to continue her journey in STEM, combining her passion for leadership, teamwork, and education in her future pursuits.",
+      email: "kirsten0829@gmail.com", // Replace with actual email
       imageUrl: "/team/kirsten.jpg" // Add actual image path
     },
     {
@@ -32,8 +32,8 @@ export const OurTeam = () => {
     },{
       name: "Eric Mu",
       role: "Secretary",
-      description: "Experienced educator specializing in personalized learning approaches.",
-      email: "eric@example.com", // Replace with actual email
+      description: "Eric has tutored at Empower Initiative for over a year, developing close rapports with various students and guiding them to success in their academic coursework. In the past, he has also tutored for the SAT and taught Python to younger children. He particularly values individual education and helping students fully comprehend complex concepts. In his sophomore year, Eric got a 5 on his AP Calculus BC exam, and he continues to challenge himself with other AP courses alongside dual enrollment and competition math, obtaining a 10 on the AIME. In his spare time, he enjoys reading, piecing together jigsaw puzzles, and spending time with family.",
+      email: "ericmu2124@gmail.com", // Replace with actual email
       imageUrl: "/team/eric.jpg" // Add actual image path
     },
     {
