@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Slideshow from '../components/Slideshow';
+import QuotesSlide from '../components/QuotesSlide';
 
 
 
@@ -56,7 +57,7 @@ const FeatureCard = styled.div`
 
 
 
-const Stat = ({title, label}: {title: string; label: string}) => {
+const Stat = ({ title, label }: { title: string; label: string }) => {
 	return (
 		<div>
 			<h2 className='text-crab'>{title}</h2>
@@ -66,49 +67,63 @@ const Stat = ({title, label}: {title: string; label: string}) => {
 }
 
 export const Home = () => {
-  return (
-    <div className='flex flex-col w-full'>
-      <div className='bg-rose-50 p-10 lg:p-20 min-h-[60vh] flex items-center w-full'>
-        <div className='w-full mx-auto px-5 text-center lg:text-left flex flex-col lg:flex-row items-center gap-3'>
-          <div className='flex-1'>
-            <h1 className='text-deep-ocean mb-3'>Connecting Local Students with Expert Tutors</h1>
-            <p className='text-gray mx-auto lg:m-0 mb-5 text-lg max-w-2xl'>
-              Join our community of passionate educators and eager learners to create meaningful connections and foster academic success in your neighborhood
-            </p>
-            <div className='grid grid-cols-3 gap-3 lg:gap-4 mt-10 text-center'>
-              <Stat title="100+" label="Children Supported" />
-              <Stat title="180+" label="Parents Connected" />
-              <Stat title="12%" label="School Volunteers" />
-            </div>
-            <div className='flex gap-4 mt-10 justify-center lg:justify-start'>
-              <Link className='button-primary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
-              <Link className='button-secondary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/tutoring">Become a Tutor</Link>
-            </div>
-          </div>
-          <Slideshow images={['/tutorimage/img1.jpg','/tutorimage/img2.jpg','/tutorimage/img3.jpg']} interval={4500} />
-        </div>
-      </div>
+	return (
+		<div className='flex flex-col w-full'>
+			<div className='bg-rose-50 p-10 lg:p-20 min-h-[60vh] flex flex-col items-center w-full'>
+				<div className='w-full mx-auto px-5 text-center lg:text-left flex flex-col lg:flex-row items-center gap-3'>
+					<div className='flex-1'>
+						<h1 className='text-deep-ocean mb-3'>Connecting Local Students with Expert Tutors</h1>
+						<p className='text-gray mx-auto lg:m-0 mb-5 text-lg max-w-2xl'>
+							Join our community of passionate educators and eager learners to create meaningful connections and foster academic success in your neighborhood
+						</p>
+						<div className='grid grid-cols-3 gap-3 lg:gap-4 mt-10 text-center'>
+							<Stat title="100+" label="Children Supported" />
+							<Stat title="180+" label="Parents Connected" />
+							<Stat title="12%" label="School Volunteers" />
+						</div>
+						<div className='flex gap-4 mt-10 justify-center lg:justify-start'>
+							<Link className='button-primary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
+							<Link className='button-secondary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/tutoring">Become a Tutor</Link>
+						</div>
+					</div>
+					<Slideshow images={['/tutorimage/img1.jpg', '/tutorimage/img2.jpg', '/tutorimage/img3.jpg']} interval={4500} />
+				</div>
+				
+			</div>
 
-      <Features>
-        <FeaturesGrid>
-          <FeatureCard>
-            <h3>Local Expert Tutors</h3>
-            <p>Connect with qualified tutors from your community who understand your local curriculum and learning needs</p>
-          </FeatureCard>
-          <FeatureCard>
-            <h3>Personalized Learning</h3>
-            <p>Get one-on-one attention and customized learning plans that adapt to your child's unique learning style</p>
-          </FeatureCard>
-          <FeatureCard>
-            <h3>Community-Driven</h3>
-            <p>Join a network where 10% of school members volunteer as tutors, creating a supportive learning environment</p>
-          </FeatureCard>
-          <FeatureCard>
-            <h3>Parent Involvement</h3>
-            <p>Stay connected with your child's progress through regular updates and a community of 160+ engaged parents</p>
-          </FeatureCard>
-        </FeaturesGrid>
-      </Features>
-    </div>
-  );
+			<div className='w-full h-20 bg-gradient-to-b from-rose-50 via-rose-50/60 to-white' aria-hidden='true' />
+
+			<section className='w-full bg-white pt-6 md:pt-10 pb-6 md:pb-10'>
+				<div className='max-w-4xl mx-auto px-6 text-center mb-6 md:mb-8'>
+					<p className='text-sm md:text-base tracking-[0.16em] uppercase text-crab font-semibold mb-2'>Testimonials</p>
+					<h2 className='text-deep-ocean mb-3'>What Families Are Saying</h2>
+					<p className='text-gray text-base md:text-lg max-w-2xl mx-auto'>
+						Real feedback from parents and students in our local tutoring community.
+					</p>
+				</div>
+				<QuotesSlide />
+			</section>
+
+			<Features>
+				<FeaturesGrid>
+					<FeatureCard>
+						<h3>Local Expert Tutors</h3>
+						<p>Connect with qualified tutors from your community who understand your local curriculum and learning needs</p>
+					</FeatureCard>
+					<FeatureCard>
+						<h3>Personalized Learning</h3>
+						<p>Get one-on-one attention and customized learning plans that adapt to your child's unique learning style</p>
+					</FeatureCard>
+					<FeatureCard>
+						<h3>Community-Driven</h3>
+						<p>Join a network where 10% of school members volunteer as tutors, creating a supportive learning environment</p>
+					</FeatureCard>
+					<FeatureCard>
+						<h3>Parent Involvement</h3>
+						<p>Stay connected with your child's progress through regular updates and a community of 160+ engaged parents</p>
+					</FeatureCard>
+				</FeaturesGrid>
+			</Features>
+		</div>
+	);
 }; 
