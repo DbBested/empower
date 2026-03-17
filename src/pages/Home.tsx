@@ -79,7 +79,7 @@ export const Home = () => {
 						<div className='grid grid-cols-3 gap-3 lg:gap-4 mt-10 text-center'>
 							<Stat title="100+" label="Children Supported" />
 							<Stat title="180+" label="Parents Connected" />
-							<Stat title="12%" label="School Volunteers" />
+							<Stat title="#1" label="Largest Volunteering Club" />
 						</div>
 						<div className='flex gap-4 mt-10 justify-center lg:justify-start'>
 							<Link className='button-primary px-4 md:px-8 py-4 rounded-md font-bold text-lg' to="/join-us">Find a Tutor</Link>
