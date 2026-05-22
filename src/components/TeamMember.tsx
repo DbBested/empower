@@ -50,14 +50,16 @@ interface TeamMemberProps {
 
 export const TeamMember = ({ name, role, description, email, imageUrl }: TeamMemberProps) => {
   return (
-    <div className='first:col-span-full ring-1 ring-gray-100 text-center p-6 bg-white rounded-xl shadow-md transition-transform ease-in-out duration-200 hover:-translate-y-1'>
+    <div className='ring-1 ring-gray-100 text-center p-6 bg-white rounded-xl shadow-md transition-transform ease-in-out duration-200 hover:-translate-y-1'>
       <MemberImage>
         {imageUrl && <img src={imageUrl} alt={name} />}
       </MemberImage>
       <MemberName>{name}</MemberName>
       <MemberRole>{role}</MemberRole>
       <MemberDescription>{description}</MemberDescription>
-      <MemberEmail href={`mailto:${email}`}>{email}</MemberEmail>
+      {email && email !== "" && (
+        <MemberEmail href={`mailto:${email}`}>{email}</MemberEmail>
+      )}
     </div>
   );
 }; 
