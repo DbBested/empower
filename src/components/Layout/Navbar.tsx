@@ -1,119 +1,123 @@
-import { Link, NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import { useState } from 'react';
+'use client';
 
-const Nav = styled.nav`
-  background-color: ${({ theme }) => theme.colors.white};
-  padding: ${({ theme }) => `${theme.spacing.sm} ${theme.spacing.lg}`};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-`;
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-const NavContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
+const navLinks = [
+	{ href: '/webinars', label: 'Webinars' },
+	{ href: '/our-team', label: 'Our Team' },
+	{ href: '/resources', label: 'Resources' },
+	{ href: '/tutoring', label: 'Tutoring' },
+	{ href: '/donate', label: 'Donate' },
+];
 
-const LogoContainer = styled(Link)`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	font-family: ${({ theme }) => theme.fonts.heading};
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: ${({ theme }) => theme.colors.deepOcean};
-`;
+type NavBodyProps = {
+	isMenuOpen: boolean;
+	toggleMenu: () => void;
+	closeMenu: () => void;
+	pathname: string;
+	light: boolean;
+};
 
-const LogoImage = styled.div`
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.sandDollar};
-  margin-right: .5rem;
-  transition: transform 0.2s ease;
+const NavBody = ({ isMenuOpen, toggleMenu, closeMenu, pathname, light }: NavBodyProps) => {
+	const logoColor = light ? 'text-white' : 'text-deep-ocean';
+	const menuButtonColor = light ? 'text-white' : 'text-deep-ocean';
+	const linkIdle = light ? 'text-slate-300' : 'text-black';
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-`;
+	return (
+		<div className="flex justify-between items-center relative w-full">
+			<Link
+				href="/"
+				onClick={closeMenu}
+				className={`flex flex-row justify-between items-center font-poppins text-2xl font-bold ${logoColor}`}
+			>
+				<span className="w-12 h-12 rounded-full overflow-hidden bg-sand-dollar mr-2 transition-transform duration-200 inline-block">
+					<img src="/logo.png" alt="Logo" className="w-full h-full object-cover" />
+				</span>
+				Empower Initiative
+			</Link>
 
-const NavLinks = styled.div<{ isOpen: boolean }>`
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+			<button
+				type="button"
+				onClick={toggleMenu}
+				className={`hidden max-[900px]:block text-2xl cursor-pointer ${menuButtonColor}`}
+				aria-label="Toggle menu"
+			>
+				{isMenuOpen ? '✕' : '☰'}
+			</button>
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: ${({ theme }) => theme.colors.white};
-    padding: ${({ theme }) => theme.spacing.lg};
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    gap: ${({ theme }) => theme.spacing.md};
-  }
-`;
-
-const MyNavLink = styled(NavLink)`
-  color: ${({ theme }) => theme.colors.black};
-  font-weight: 500;
-  transition: color 0.2s ease;
-  font-family: ${({ theme }) => theme.fonts.body};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.crab};
-  }
-
-  &.active {
-    color: ${({ theme }) => theme.colors.crab};
-  }
-`;
-
-const MenuButton = styled.button`
-  display: none;
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.deepOcean};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    display: block;
-  }
-`;
+			<div
+				className={`flex gap-8 items-center max-[900px]:flex-col max-[900px]:absolute max-[900px]:top-full max-[900px]:right-0 max-[900px]:bg-white max-[900px]:p-8 max-[900px]:shadow-md max-[900px]:gap-6 ${
+					isMenuOpen ? 'max-[900px]:flex' : 'max-[900px]:hidden'
+				}`}
+			>
+				{navLinks.map((link) => {
+					const active = pathname === link.href;
+					return (
+						<Link
+							key={link.href}
+							href={link.href}
+							onClick={closeMenu}
+							className={`font-medium font-sans transition-colors duration-200 hover:text-crab ${
+								active ? 'text-crab' : linkIdle
+							}`}
+						>
+							{link.label}
+						</Link>
+					);
+				})}
+			</div>
+		</div>
+	);
+};
 
 export const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [showFloating, setShowFloating] = useState(false);
+	const [atTop, setAtTop] = useState(true);
+	const pathname = usePathname();
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setShowFloating(window.scrollY > window.innerHeight);
+			setAtTop(window.scrollY < 120);
+		};
+		handleScroll();
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
+
+	const toggleMenu = () => setIsMenuOpen((open) => !open);
 	const closeMenu = () => setIsMenuOpen(false);
+	const lightTheme = pathname === '/' && atTop;
 
 	return (
-		<Nav>
-			<NavContainer>
-				<LogoContainer to="/" onClick={closeMenu}>
-					<LogoImage><img src="/logo.png" alt="Logo" /></LogoImage>
-					Empower
-				</LogoContainer>
-				<MenuButton onClick={() => setIsMenuOpen(!isMenuOpen)}>
-					{isMenuOpen ? '✕' : '☰'}
-				</MenuButton>
-				<NavLinks isOpen={isMenuOpen}>
-					<MyNavLink to="/webinars" onClick={closeMenu}>Webinars</MyNavLink>
-					<MyNavLink to="/our-team" onClick={closeMenu}>Our Team</MyNavLink>
-					<MyNavLink to="/resources" onClick={closeMenu}>Resources</MyNavLink>
-					<MyNavLink to="/tutoring" onClick={closeMenu}>Tutoring</MyNavLink>
-					<MyNavLink to="/donate" onClick={closeMenu}>Donate</MyNavLink>
-					<Link className='button-primary py-2 px-6 font-semibold rounded-sm' to="/join-us" onClick={closeMenu}>Join Us</Link>
-				</NavLinks>
-			</NavContainer>
-		</Nav>
+		<>
+			<nav className="bg-transparent px-4 py-3 w-full absolute top-0 left-0 right-0 z-20">
+				<NavBody
+					isMenuOpen={isMenuOpen}
+					toggleMenu={toggleMenu}
+					closeMenu={closeMenu}
+					pathname={pathname}
+					light={lightTheme}
+				/>
+			</nav>
+
+			<nav
+				className={`bg-transparent px-4 py-3 w-full fixed top-0 left-0 right-0 z-[1000] transition-transform duration-500 ease-out will-change-transform ${
+					showFloating ? 'translate-y-0' : '-translate-y-full'
+				}`}
+				aria-hidden={!showFloating}
+			>
+				<NavBody
+					isMenuOpen={isMenuOpen}
+					toggleMenu={toggleMenu}
+					closeMenu={closeMenu}
+					pathname={pathname}
+					light={false}
+				/>
+			</nav>
+		</>
 	);
-}; 
+};
