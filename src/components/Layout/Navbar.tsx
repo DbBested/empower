@@ -1,15 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { coverDelayMs } from '@/components/transitionTimings';
 
 const navLinks = [
-	{ href: '/webinars', label: 'Webinars' },
 	{ href: '/our-team', label: 'Our Team' },
-	{ href: '/resources', label: 'Resources' },
 	{ href: '/tutoring', label: 'Tutoring' },
-	{ href: '/donate', label: 'Donate' },
+	{ href: '/resources', label: 'Resources' },
+	{ href: '/contact', label: 'Contact' },
 ];
 
 type NavBodyProps = {
@@ -21,15 +21,42 @@ type NavBodyProps = {
 };
 
 const NavBody = ({ isMenuOpen, toggleMenu, closeMenu, pathname, light }: NavBodyProps) => {
+	const router = useRouter();
 	const logoColor = light ? 'text-white' : 'text-deep-ocean';
 	const menuButtonColor = light ? 'text-white' : 'text-deep-ocean';
 	const linkIdle = light ? 'text-slate-300' : 'text-black';
+
+	const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+		const href = e.currentTarget.getAttribute('href');
+		const isModified = e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0;
+		if (isModified || !href || href === pathname) {
+			closeMenu();
+			return;
+		}
+
+		e.preventDefault();
+		const rect = e.currentTarget.getBoundingClientRect();
+		const realClick = e.detail > 0;
+		const px = realClick ? e.clientX : rect.left + rect.width / 2;
+		const py = realClick ? e.clientY : rect.top + rect.height / 2;
+		window.dispatchEvent(
+			new CustomEvent('page-transition-start', {
+				detail: {
+					x: (px / window.innerWidth) * 100,
+					y: (py / window.innerHeight) * 100,
+				},
+			})
+		);
+		closeMenu();
+		window.setTimeout(() => router.push(href), coverDelayMs);
+	};
 
 	return (
 		<div className="flex justify-between items-center relative w-full">
 			<Link
 				href="/"
-				onClick={closeMenu}
+				onClick={handleNavClick}
+				data-transition-manual="true"
 				className={`flex flex-row justify-between items-center font-poppins text-2xl font-bold ${logoColor}`}
 			>
 				<span className="w-12 h-12 rounded-full overflow-hidden bg-sand-dollar mr-2 transition-transform duration-200 inline-block">
@@ -58,7 +85,8 @@ const NavBody = ({ isMenuOpen, toggleMenu, closeMenu, pathname, light }: NavBody
 						<Link
 							key={link.href}
 							href={link.href}
-							onClick={closeMenu}
+							onClick={handleNavClick}
+							data-transition-manual="true"
 							className={`font-medium font-sans transition-colors duration-200 hover:text-crab ${
 								active ? 'text-crab' : linkIdle
 							}`}

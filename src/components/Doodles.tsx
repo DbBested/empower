@@ -73,14 +73,48 @@ export const Pencil = (props: DoodleProps) => (
 	</svg>
 );
 
-export const Loop = (props: DoodleProps) => (
+export const Flower = (props: DoodleProps) => (
 	<svg viewBox="0 0 80 80" fill="none" {...props}>
 		<path
-			d="M10 60 Q 10 10, 40 10 T 70 60 Q 70 20, 30 30"
+			d="M40 12 C 33 12, 29 20, 33 28 C 36 35, 44 36, 47 28 C 51 20, 47 12, 40 12 Z"
 			stroke="currentColor"
-			strokeWidth="3"
+			strokeWidth="2.5"
 			strokeLinecap="round"
+			strokeLinejoin="round"
 		/>
+		<path
+			d="M40 12 C 33 12, 29 20, 33 28 C 36 35, 44 36, 47 28 C 51 20, 47 12, 40 12 Z"
+			transform="rotate(72 40 40)"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+		<path
+			d="M40 12 C 33 12, 29 20, 33 28 C 36 35, 44 36, 47 28 C 51 20, 47 12, 40 12 Z"
+			transform="rotate(144 40 40)"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+		<path
+			d="M40 12 C 33 12, 29 20, 33 28 C 36 35, 44 36, 47 28 C 51 20, 47 12, 40 12 Z"
+			transform="rotate(216 40 40)"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+		<path
+			d="M40 12 C 33 12, 29 20, 33 28 C 36 35, 44 36, 47 28 C 51 20, 47 12, 40 12 Z"
+			transform="rotate(288 40 40)"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+		/>
+		<circle cx="40" cy="40" r="6" stroke="currentColor" strokeWidth="2.5" />
 	</svg>
 );
 

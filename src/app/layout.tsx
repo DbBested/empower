@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Navbar } from '@/components/Layout/Navbar';
+import { PageTransition } from '@/components/PageTransition';
 import { SmoothScroll } from '@/components/SmoothScroll';
+import { TransitionContent } from '@/components/TransitionContent';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -15,9 +17,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body>
 				<SmoothScroll>
-				<div className="flex flex-col min-h-screen w-full">
+				<PageTransition />
+				<div className="page-shell flex flex-col min-h-screen w-full">
 					<Navbar />
-					<main className="flex-1 w-full flex flex-col">{children}</main>
+					<main className="flex-1 w-full flex flex-col">
+						<TransitionContent>{children}</TransitionContent>
+					</main>
 					<footer className="bg-deep-ocean text-white px-16 py-16 w-full flex flex-col items-center">
 						<div className="max-w-[1200px] w-full grid gap-16 justify-items-center text-center grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
 							<div className="flex flex-col items-center">

@@ -44,6 +44,8 @@ html.lenis, html.lenis body {
 	body {
 		font-family: var(--font-sans);
 		background-color: #ffffff;
+		transition: background-color 0.5s ease;
+		will-change: background-color;
 		color: #000000;
 		line-height: 1.5;
 		-webkit-font-smoothing: antialiased;
@@ -111,6 +113,166 @@ html.lenis, html.lenis body {
 	from { transform: translateX(0); }
 	to { transform: translateX(-50%); }
 }
+
+/* Phase 1: Blue circle grows */
+.circle-blue {
+	animation: growBlue .6s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+/* Phase 2: Orange circle grows over the blue one */
+.circle-orange {
+	animation: growOrange .8s cubic-bezier(0.42, 0, 0.58, 1) 0.15s forwards;
+}
+
+/* Phase 3: The transparent hole cuts through both */
+.mask-hole {
+	animation: none;
+}
+
+.mask-hole.is-active {
+	animation: growHole .8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+@keyframes growBlue {
+	0% { r: 0px; }
+	100% { r: 50px; }
+}
+
+@keyframes growOrange {
+	0% { r: 0px; }
+	100% { r: 49px; }
+}
+
+@keyframes growHole {
+	0% { r: 0px; }
+	100% { r: 48px; }
+}
+
+.transition-loader {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2001;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	pointer-events: none;
+}
+
+.pencil-wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+
+.paper-sheet {
+	position: relative;
+	width: 220px;
+	height: 120px;
+	border-radius: 16px;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	overflow: hidden;
+}
+
+.paper-scribble {
+	position: absolute;
+	left: 8px;
+	right: 8px;
+	top: 18px;
+	bottom: 18px;
+	width: calc(100% - 16px);
+	height: calc(100% - 36px);
+}
+
+.paper-scribble-path {
+	fill: none;
+	stroke: rgba(32, 78, 207, 0.6);
+	stroke-width: 2.5;
+	stroke-linecap: round;
+	stroke-dasharray: 180;
+	stroke-dashoffset: 180;
+	animation: scribble-draw 1.7s ease-in-out infinite;
+}
+
+.paper-scribble-path.is-alt {
+	opacity: 0.8;
+	animation-delay: 0.2s;
+}
+
+.paper-scribble-path.is-alt-two {
+	opacity: 0.7;
+	animation-delay: 0.35s;
+}
+
+.pencil-writing {
+	position: absolute;
+	left: 10px;
+	top: 6px;
+	width: 200px;
+	height: 110px;
+	pointer-events: none;
+}
+
+.pencil-icon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 90px;
+	height: 24px;
+	animation: pencil-write 1.7s cubic-bezier(0.35, 0.05, 0.25, 1) infinite;
+	transform-origin: 92% 55%;
+}
+
+.linear-loader {
+	width: 220px;
+	height: 6px;
+	border-radius: 999px;
+	background: rgba(32, 78, 207, 0.15);
+	overflow: hidden;
+}
+
+.linear-loader-bar {
+	display: block;
+	width: 35%;
+	height: 100%;
+	background: rgba(32, 78, 207, 0.7);
+	animation: linear-load 1.4s ease-in-out infinite;
+}
+
+@keyframes pencil-write {
+	0% { transform: translate(6px, 52px) rotate(82deg); }
+	22% { transform: translate(16px, 48px) rotate(84deg); }
+	44% { transform: translate(26px, 56px) rotate(81deg); }
+	66% { transform: translate(20px, 50px) rotate(86deg); }
+	82% { transform: translate(32px, 58px) rotate(83deg); }
+	100% { transform: translate(8px, 52px) rotate(82deg); }
+}
+
+@keyframes scribble-draw {
+	0% { stroke-dashoffset: 180; opacity: 0.25; }
+	35% { stroke-dashoffset: 90; opacity: 0.7; }
+	65% { stroke-dashoffset: 25; opacity: 1; }
+	100% { stroke-dashoffset: 180; opacity: 0.25; }
+}
+
+@keyframes linear-load {
+	0% { transform: translateX(-60%); }
+	100% { transform: translateX(160%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pencil-icon,
+	.paper-scribble-path,
+	.linear-loader-bar {
+		animation: none;
+	}
+}
+
 
 .animate-float { animation: float-soft 6s ease-in-out infinite; }
 .animate-float-slow { animation: float-soft 9s ease-in-out infinite; }

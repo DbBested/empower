@@ -5,7 +5,7 @@ import { Reveal } from '@/components/Reveal';
 import {
 	Arrow,
 	Heart,
-	Loop,
+	Flower,
 	Pencil,
 	Plus,
 	Scribble,
@@ -75,19 +75,19 @@ export default function HomePage() {
 						className="w-full h-full object-cover"
 					/>
 				</Parallax>
-				<div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+				<div className="absolute inset-0 bg-black/65" aria-hidden="true" />
 
-				<Parallax speed={-0.15} className="absolute top-12 left-6 md:top-20 md:left-16 text-sand-dollar/80 pointer-events-none">
+				<Parallax speed={-0.15} className="absolute top-20 left-6 md:top-28 md:left-16 text-sand-dollar/80 pointer-events-none">
 					<Sparkle className="w-10 h-10 animate-wiggle" style={{ ['--rot' as string]: '0deg' }} />
 				</Parallax>
-				<Parallax speed={-0.25} className="absolute top-24 right-8 md:top-32 md:right-24 text-butterscotch pointer-events-none">
+				<Parallax speed={-0.25} className="absolute top-24 right-8 md:top-42 md:right-24 text-butterscotch pointer-events-none">
 					<Star className="w-14 h-14 animate-float" style={{ ['--rot' as string]: '12deg' }} />
 				</Parallax>
 				<Parallax speed={-0.2} className="absolute bottom-24 left-10 md:bottom-32 md:left-32 text-crab pointer-events-none">
 					<Scribble className="w-20 h-20 animate-spin-slow" />
 				</Parallax>
-				<Parallax speed={-0.3} className="absolute bottom-16 right-6 md:bottom-24 md:right-20 text-vista-blue pointer-events-none">
-					<Loop className="w-16 h-16 animate-float-slow" />
+				<Parallax speed={-0.3} className="absolute bottom-28 right-6 md:bottom-48 md:right-32 text-vista-blue pointer-events-none">
+					<Flower className="w-16 h-16 animate-float-slow" />
 				</Parallax>
 
 				<Parallax speed={-0.4} className="relative z-10 px-6 text-center text-white">
@@ -114,7 +114,7 @@ export default function HomePage() {
 							Find a Tutor
 						</Link>
 						<Link
-							className="bg-white/95 hover:bg-white text-deep-ocean ring-1 ring-white px-8 py-4 rounded-md font-semibold text-base transition-transform hover:scale-[1.03]"
+							className="bg-white/95 hover:bg-white text-deep-ocean px-8 py-4 rounded-md font-semibold text-base transition-transform hover:scale-[1.03]"
 							href="/tutoring"
 						>
 							Become a Tutor
@@ -192,7 +192,7 @@ export default function HomePage() {
 								<Heart className="w-10 h-10 animate-float-slow" />
 							</Parallax>
 							<Parallax speed={-0.15} className="absolute left-12 bottom-16 text-butterscotch pointer-events-none">
-								<Loop className="w-14 h-14 animate-spin-slow" />
+								<Flower className="w-14 h-14 animate-spin-slow" />
 							</Parallax>
 						</>
 					)}
@@ -228,7 +228,7 @@ export default function HomePage() {
 					<Star className="w-14 h-14 animate-float" />
 				</Parallax>
 				<Parallax speed={0.2} className="absolute left-1/4 bottom-8 text-butterscotch/70 pointer-events-none">
-					<Loop className="w-16 h-16 animate-spin-slow" />
+					<Flower className="w-16 h-16 animate-spin-slow" />
 				</Parallax>
 				<Parallax speed={-0.3} className="absolute right-1/4 bottom-4 text-crab/50 pointer-events-none">
 					<Heart className="w-10 h-10 animate-float-slow" />
