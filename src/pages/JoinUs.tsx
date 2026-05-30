@@ -1,5 +1,5 @@
 const GOOGLE_CLASSROOM_URL = "https://classroom.google.com/c/NjYxMjA4MzYwODYx?cjc=uejjzpk";
-const CHILD_SIGNUP_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2s6wIPlxF2CU8hFK5sffGS2kopleb2RlP00y8i21660-lRA/viewform"; // TODO: replace with actual form URL
+const CHILD_SIGNUP_FORM_URL = "https://forms.gle/Y1B4K7y7fHeLXfym6"; // TODO: replace with actual form URL
 const NEW_CHAPTER_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdxo2vkzIJ2ge4RpimZMBOqk_eZitidO0Dqu0MBaf8HlZEluA/viewform"; // TODO: replace with actual form URL
 
 interface CardProps {
