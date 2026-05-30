@@ -46,18 +46,19 @@ export const Sparkle = (props: DoodleProps) => (
 );
 
 export const Arrow = (props: DoodleProps) => (
-	<svg viewBox="0 0 100 80" fill="none" {...props}>
+	<svg viewBox="0 0 100 20" fill="none" {...props}>
 		<path
-			d="M6 40 C 30 4, 70 70, 92 28"
+			d="M8 10 L 78 10"
 			stroke="currentColor"
 			strokeWidth="3"
 			strokeLinecap="round"
+			strokeLinejoin="round"
 		/>
 		<path
-			d="M82 18 L 94 28 L 84 40"
+			d="M76 2 L 96 10 L 76 18 Z"
+			fill="currentColor"
 			stroke="currentColor"
-			strokeWidth="3"
-			strokeLinecap="round"
+			strokeWidth="2.5"
 			strokeLinejoin="round"
 		/>
 	</svg>

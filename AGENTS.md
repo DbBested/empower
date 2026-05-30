@@ -17,6 +17,20 @@ Dev server runs on **port 5173** (configured via `next dev -p 5173`). Don't run 
 
 This is the website for **Empower Initiative**, a high-school tutoring nonprofit. It's a **Next.js 15 App Router** project with **React 19** and **TypeScript**.
 
+## Accessibility — a core project goal
+
+**Accessibility is a primary, non-negotiable goal of this site.** Every change must keep the site fully usable by keyboard and assistive technology. Target **WCAG 2.1 AA**. When adding or editing UI, treat the following as requirements, not nice-to-haves:
+
+- **Keyboard first.** Every interactive control must be reachable and operable by keyboard (Tab/Shift+Tab/Enter/Space/Esc), in a logical order. Never leave focusable controls hidden but still in the tab order.
+- **Skip link.** `layout.tsx` renders a "Skip to main content" link as the first focusable element; it targets `#main-content` on `<main>` (which has `tabIndex={-1}` so it can receive focus). Keep it first and keep the target id intact.
+- **The dual navbar uses `inert`.** Two navbars exist (absolute top + fixed floating). Each gets React 19's boolean `inert` so that **only the visible nav is in the tab order and accessibility tree** (`inert={showFloating}` on top, `inert={!showFloating}` on floating). For any show/hide UI (menus, modals, off-screen panels), use `inert` — do **not** rely on `aria-hidden` alone, which doesn't remove elements from the tab order.
+- **Visible focus indicators.** Keyboard focus must always be visible. Use the `focus-visible` ring convention (`focus-visible:ring-2 focus-visible:ring-crab`, see the shared `focusRing` in `Navbar.tsx`). Never remove an outline without providing a visible replacement.
+- **Don't convey meaning by color alone.** Active states need a non-color signal too (e.g. `aria-current="page"` on the active nav link).
+- **Accessible names + state.** Icon-only/ambiguous controls need `aria-label`; stateful controls expose state (e.g. `aria-expanded` on the mobile menu toggle). Decorative SVGs/doodles get `aria-hidden="true"`.
+- **Semantics & landmarks.** Use real landmarks (`header`/`nav`/`main`/`footer`), label distinct nav regions with `aria-label` (the footer's nav columns do), keep a sensible heading order, and give every meaningful image real `alt` text.
+- **Respect `prefers-reduced-motion`.** `SmoothScroll`, the slot-machine reel, the hero cursor tilt, and the loaders already disable/skip motion under this preference. Any new animation must do the same.
+- **Color contrast.** Text must meet AA contrast against its background.
+
 **Routing** (`src/app/`): Next.js App Router. Each route is a directory with a `page.tsx`:
 - `src/app/page.tsx` — Home
 - `src/app/webinars/page.tsx`

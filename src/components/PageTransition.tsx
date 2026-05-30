@@ -155,8 +155,8 @@ export const PageTransition = () => {
 				className="reveal-svg absolute"
 				style={{ left: 'var(--ripple-x)', top: 'var(--ripple-y)', transform: 'translate(-50%, -50%)' }}
 				viewBox="0 0 100 100"
-				width="400vw"
-				height="400vh"
+				width="800vw"
+				height="800vh"
 			>
 				<defs>
 					<mask id="sequence-mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
@@ -167,7 +167,6 @@ export const PageTransition = () => {
 
 				<g mask="url(#sequence-mask)">
 					<circle cx="50" cy="50" r="0" className="circle-blue fill-deep-ocean" />
-					<circle cx="50" cy="50" r="0" className="circle-orange fill-crab" />
 				</g>
 			</svg>
 

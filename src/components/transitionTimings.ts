@@ -1,1 +1,1 @@
-export const coverDelayMs = 400;
+export const coverDelayMs = 300;

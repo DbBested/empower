@@ -116,15 +116,10 @@ html.lenis, html.lenis body {
 
 /* Phase 1: Blue circle grows */
 .circle-blue {
-	animation: growBlue .6s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+	animation: growBlue .5s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
 
-/* Phase 2: Orange circle grows over the blue one */
-.circle-orange {
-	animation: growOrange .8s cubic-bezier(0.42, 0, 0.58, 1) 0.15s forwards;
-}
-
-/* Phase 3: The transparent hole cuts through both */
+/* Phase 2: The transparent hole cuts through */
 .mask-hole {
 	animation: none;
 }
@@ -136,11 +131,6 @@ html.lenis, html.lenis body {
 @keyframes growBlue {
 	0% { r: 0px; }
 	100% { r: 50px; }
-}
-
-@keyframes growOrange {
-	0% { r: 0px; }
-	100% { r: 49px; }
 }
 
 @keyframes growHole {
@@ -161,113 +151,117 @@ html.lenis, html.lenis body {
 	pointer-events: none;
 }
 
-.pencil-wrap {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 8px;
-}
-
-.paper-sheet {
+/* Pseudo-3D "pencil writing on paper" loader.
+   The scene is tilted back with perspective+rotateX (on an HTML wrapper — far
+   more reliable than 3D-transforming SVG) so the writing plane recedes like a
+   sheet of paper on a desk. A cylinder-shaded pencil tracks left-to-right,
+   bobbing as it writes a handwriting scribble in along a faint baseline. */
+.write-scene {
 	position: relative;
-	width: 220px;
-	height: 120px;
-	border-radius: 16px;
-	background: transparent;
-	border: none;
-	box-shadow: none;
-	overflow: hidden;
+	width: 240px;
+	height: 96px;
+	transform: perspective(680px) rotateX(24deg);
+	transform-origin: center bottom;
 }
 
-.paper-scribble {
+.write-ink {
 	position: absolute;
-	left: 8px;
-	right: 8px;
-	top: 18px;
-	bottom: 18px;
-	width: calc(100% - 16px);
-	height: calc(100% - 36px);
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	overflow: visible;
 }
 
-.paper-scribble-path {
-	fill: none;
-	stroke: rgba(32, 78, 207, 0.6);
-	stroke-width: 2.5;
+.write-baseline {
+	stroke: rgba(255, 255, 255, 0.22);
+	stroke-width: 2;
 	stroke-linecap: round;
-	stroke-dasharray: 180;
-	stroke-dashoffset: 180;
-	animation: scribble-draw 1.7s ease-in-out infinite;
 }
 
-.paper-scribble-path.is-alt {
-	opacity: 0.8;
-	animation-delay: 0.2s;
+.write-ink-path {
+	fill: none;
+	stroke: #ffffff;
+	stroke-width: 3.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+	animation: write-ink 2.6s ease-in-out infinite;
 }
 
-.paper-scribble-path.is-alt-two {
-	opacity: 0.7;
-	animation-delay: 0.35s;
-}
-
-.pencil-writing {
+.write-pencil {
 	position: absolute;
-	left: 10px;
-	top: 6px;
-	width: 200px;
-	height: 110px;
-	pointer-events: none;
-}
-
-.pencil-icon {
-	position: absolute;
+	top: 2px;
 	left: 0;
-	top: 0;
-	width: 90px;
-	height: 24px;
-	animation: pencil-write 1.7s cubic-bezier(0.35, 0.05, 0.25, 1) infinite;
-	transform-origin: 92% 55%;
+	width: 66px;
+	height: auto;
+	overflow: visible;
+	animation: write-move 2.6s ease-in-out infinite;
 }
 
+.pencil-body { fill: url(#pencilBody); }
+.pencil-wood { fill: url(#pencilWood); }
+.pencil-tip { fill: #3f3f46; }
+.pencil-ferrule { fill: #cdd1d6; }
+.pencil-eraser { fill: var(--color-crab); }
+.pencil-shadow { fill: rgba(0, 0, 0, 0.22); }
+
+@keyframes write-ink {
+	0%, 8% { stroke-dashoffset: 400; opacity: 1; }
+	66% { stroke-dashoffset: 0; opacity: 1; }
+	84% { stroke-dashoffset: 0; opacity: 1; }
+	100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes write-move {
+	0% { transform: translate(0, 0); opacity: 0; }
+	8% { transform: translate(0, 0); opacity: 1; }
+	22% { transform: translate(34px, -3px); opacity: 1; }
+	38% { transform: translate(70px, 0); opacity: 1; }
+	52% { transform: translate(104px, -3px); opacity: 1; }
+	66% { transform: translate(150px, 0); opacity: 1; }
+	74% { transform: translate(164px, -16px); opacity: 0; }
+	100% { transform: translate(164px, -16px); opacity: 0; }
+}
+
+/* Linear loading bar — soft light sweep on the deep-ocean background */
 .linear-loader {
-	width: 220px;
-	height: 6px;
+	width: 200px;
+	height: 5px;
 	border-radius: 999px;
-	background: rgba(32, 78, 207, 0.15);
+	background: rgba(255, 255, 255, 0.18);
 	overflow: hidden;
 }
 
 .linear-loader-bar {
 	display: block;
-	width: 35%;
+	width: 45%;
 	height: 100%;
-	background: rgba(32, 78, 207, 0.7);
-	animation: linear-load 1.4s ease-in-out infinite;
-}
-
-@keyframes pencil-write {
-	0% { transform: translate(6px, 52px) rotate(82deg); }
-	22% { transform: translate(16px, 48px) rotate(84deg); }
-	44% { transform: translate(26px, 56px) rotate(81deg); }
-	66% { transform: translate(20px, 50px) rotate(86deg); }
-	82% { transform: translate(32px, 58px) rotate(83deg); }
-	100% { transform: translate(8px, 52px) rotate(82deg); }
-}
-
-@keyframes scribble-draw {
-	0% { stroke-dashoffset: 180; opacity: 0.25; }
-	35% { stroke-dashoffset: 90; opacity: 0.7; }
-	65% { stroke-dashoffset: 25; opacity: 1; }
-	100% { stroke-dashoffset: 180; opacity: 0.25; }
+	border-radius: inherit;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0) 0%,
+		rgba(255, 255, 255, 0.95) 50%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	animation: linear-load 1.3s ease-in-out infinite;
 }
 
 @keyframes linear-load {
-	0% { transform: translateX(-60%); }
-	100% { transform: translateX(160%); }
+	0% { transform: translateX(-120%); }
+	100% { transform: translateX(260%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.pencil-icon,
-	.paper-scribble-path,
+	.write-ink-path {
+		animation: none;
+		stroke-dashoffset: 0;
+		opacity: 1;
+	}
+	.write-pencil {
+		animation: none;
+		opacity: 1;
+	}
 	.linear-loader-bar {
 		animation: none;
 	}
@@ -284,4 +278,42 @@ html.lenis, html.lenis body {
 	stroke-dasharray: var(--dash, 300);
 	stroke-dashoffset: var(--dash, 300);
 	animation: draw 2s ease-out 0.2s forwards;
+}
+
+/* Slot-machine word reel */
+.slot-machine {
+	display: inline-flex;
+	/* Clip with clip-path, NOT overflow: an overflow:hidden inline box becomes a
+	   scroll container whose baseline drops to its bottom edge, pushing the reel
+	   below the static text. clip-path keeps the natural text baseline. */
+	clip-path: inset(0);
+	vertical-align: baseline;
+	white-space: nowrap;
+	transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+	will-change: width;
+}
+
+.slot-machine-track {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* Match the (animated) window width so each word centres within the visible
+	   window instead of within the widest word — otherwise short words shift
+	   right and get clipped. */
+	width: 100%;
+	transition: transform 0.6s cubic-bezier(0.34, 1.4, 0.5, 1);
+	will-change: transform;
+}
+
+.slot-machine-word {
+	display: block;
+	white-space: nowrap;
+	/* Roomy line box so ascenders/descenders are fully contained in each slot
+	   and neighbouring words never peek into the clip window. */
+	line-height: 1.5;
+}
+
+.slot-machine.is-reduced,
+.slot-machine.is-reduced .slot-machine-track {
+	transition: none;
 }

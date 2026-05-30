@@ -1,9 +1,7 @@
-import Link from 'next/link';
 import { Parallax } from '@/components/Parallax';
 import { Reveal } from '@/components/Reveal';
 import {
 	Arrow,
-	Heart,
 	Flower,
 	Pencil,
 	Plus,
@@ -52,7 +50,7 @@ export default function ContactPage() {
 						Get in touch
 					</p>
 					<h1 className="text-deep-ocean leading-[1.05] tracking-tight">
-						Let's{' '}
+						Let&apos;s{' '}
 						<span className="relative inline-block">
 							<span className="relative z-10">connect</span>
 							<Underline
@@ -82,12 +80,12 @@ export default function ContactPage() {
 
 				<Reveal className="max-w-3xl mx-auto text-center mb-16 md:mb-20 relative">
 					<p className="text-xs md:text-sm tracking-[0.25em] uppercase text-crab font-semibold mb-5">
-						01 / Reach Us
+						Reach Us
 					</p>
 					<h2 className="text-deep-ocean mb-6 leading-tight">Where to find us</h2>
 					<Squiggle className="mx-auto mb-8 w-40 h-5 text-crab" />
 					<p className="text-gray text-base md:text-lg leading-relaxed">
-						Pick whichever channel works best for you — email for anything detailed, Instagram for quick updates and a window into what we're up to.
+						Pick whichever channel works best for you — email for anything detailed, Instagram for quick updates and a window into what we&apos;re up to.
 					</p>
 				</Reveal>
 
@@ -142,100 +140,6 @@ export default function ContactPage() {
 						</article>
 					</Reveal>
 				</div>
-			</section>
-
-			{/* WHO REACHES OUT */}
-			<section className="relative px-6 py-20 md:py-28 border-b border-gray-100 overflow-hidden">
-				<Parallax speed={-0.25} className="absolute -right-8 top-20 text-vista-blue/70 pointer-events-none">
-					<Pencil className="w-40 md:w-56 h-auto rotate-6" />
-				</Parallax>
-				<Parallax speed={0.2} className="absolute left-6 md:left-20 top-24 text-crab pointer-events-none">
-					<Heart className="w-10 h-10 animate-float-slow" />
-				</Parallax>
-				<Parallax speed={-0.15} className="absolute left-10 md:left-32 bottom-16 text-butterscotch pointer-events-none">
-					<Flower className="w-14 h-14 animate-spin-slow" />
-				</Parallax>
-
-				<Reveal className="max-w-3xl mx-auto text-center mb-16 relative">
-					<p className="text-xs md:text-sm tracking-[0.25em] uppercase text-vista-blue font-semibold mb-5">
-						02 / Who reaches out
-					</p>
-					<h2 className="text-deep-ocean mb-6 leading-tight">Who we hear from</h2>
-					<Squiggle className="mx-auto mb-8 w-40 h-5 text-vista-blue" />
-				</Reveal>
-
-				<div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative">
-					{[
-						{
-							label: 'Students',
-							body: 'Looking for a tutor or wanting to ask about a subject we cover.',
-							accent: 'text-crab',
-						},
-						{
-							label: 'Parents',
-							body: 'Connecting with the community or signing kids up for sessions.',
-							accent: 'text-butterscotch',
-						},
-						{
-							label: 'Future founders',
-							body: 'Interested in starting an Empower chapter at their own school.',
-							accent: 'text-vista-blue',
-						},
-					].map((item, i) => (
-						<Reveal key={item.label} delay={i * 100} from="up">
-							<div className="text-center md:text-left">
-								<p
-									className={`text-[0.7rem] md:text-xs tracking-[0.25em] uppercase font-semibold mb-3 ${item.accent}`}
-								>
-									{item.label}
-								</p>
-								<p className="text-gray text-sm md:text-base leading-relaxed">{item.body}</p>
-							</div>
-						</Reveal>
-					))}
-				</div>
-			</section>
-
-			{/* CTA */}
-			<section className="relative w-full bg-rose-50 px-6 py-24 md:py-32 overflow-hidden">
-				<Parallax speed={0.3} className="absolute left-4 md:left-16 top-12 text-crab/40 pointer-events-none">
-					<Sparkle className="w-12 h-12 animate-wiggle" />
-				</Parallax>
-				<Parallax speed={-0.25} className="absolute right-6 md:right-20 top-16 text-vista-blue/60 pointer-events-none">
-					<Star className="w-14 h-14 animate-float" />
-				</Parallax>
-				<Parallax speed={0.2} className="absolute left-1/4 bottom-8 text-butterscotch/70 pointer-events-none">
-					<Flower className="w-16 h-16 animate-spin-slow" />
-				</Parallax>
-				<Parallax speed={-0.3} className="absolute right-1/4 bottom-4 text-crab/50 pointer-events-none">
-					<Heart className="w-10 h-10 animate-float-slow" />
-				</Parallax>
-
-				<Reveal className="max-w-3xl mx-auto text-center relative">
-					<p className="text-xs md:text-sm tracking-[0.25em] uppercase text-crab font-semibold mb-5">
-						Ready when you are
-					</p>
-					<h2 className="text-deep-ocean mb-6 leading-tight">Skip the form — just write to us</h2>
-					<Squiggle className="mx-auto mb-8 w-40 h-5 text-crab" />
-					<p className="text-gray text-base md:text-lg leading-relaxed mb-10">
-						No forms, no waiting rooms. Send an email or DM and a real student officer will reply.
-					</p>
-					<div className="flex flex-wrap gap-4 justify-center">
-						<a
-							href="mailto:empowerinit@gmail.com"
-							className="button-primary px-8 py-4 rounded-md font-semibold text-base shadow-lg hover:scale-[1.03] transition-transform inline-flex items-center gap-2"
-						>
-							Email us
-							<Arrow className="w-6 h-4 -mb-0.5" />
-						</a>
-						<Link
-							href="/join-us"
-							className="bg-white text-deep-ocean ring-1 ring-deep-ocean px-8 py-4 rounded-md font-semibold text-base transition-transform hover:scale-[1.03]"
-						>
-							Or join the team
-						</Link>
-					</div>
-				</Reveal>
 			</section>
 		</div>
 	);

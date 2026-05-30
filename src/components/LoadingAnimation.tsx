@@ -9,33 +9,46 @@ export const LoadingAnimation = ({ className, style }: LoadingAnimationProps) =>
 	const classes = ['transition-loader', className].filter(Boolean).join(' ');
 
 	return (
-		<div className={classes} style={style} aria-hidden="true">
-			<div className="pencil-wrap">
-				<div className="paper-sheet" aria-hidden="true">
-					<svg className="paper-scribble" viewBox="0 0 240 120" aria-hidden="true">
-						<path
-							className="paper-scribble-path"
-							d="M18 70 C 30 60, 44 78, 62 68 S 86 62, 104 72"
-						/>
-						<path
-							className="paper-scribble-path is-alt"
-							d="M118 72 C 130 62, 148 82, 166 70 S 194 66, 214 74"
-						/>
-						<path
-							className="paper-scribble-path is-alt-two"
-							d="M40 88 C 56 80, 72 96, 90 88"
-						/>
-					</svg>
-					<div className="pencil-writing" aria-hidden="true">
-						<svg className="pencil-icon" viewBox="0 0 120 24" role="img" aria-label="Loading">
-							<rect x="10" y="6" width="74" height="12" rx="3" fill="var(--color-butterscotch)" />
-							<rect x="2" y="6" width="8" height="12" rx="2" fill="var(--color-crab)" />
-							<rect x="0" y="6" width="3" height="12" fill="#2b2b2b" />
-							<polygon points="84,6 118,12 84,18" fill="#f3c67a" />
-						</svg>
-					</div>
-				</div>
+		<div className={classes} style={style} role="status" aria-label="Loading">
+			<div className="write-scene">
+				{/* Faint baseline + the handwriting being written in */}
+				<svg className="write-ink" viewBox="0 0 240 96" aria-hidden="true">
+					<line className="write-baseline" x1="22" y1="68" x2="214" y2="68" />
+					<path
+						className="write-ink-path"
+						d="M24 66 q7 -20 14 -8 q5 10 11 3 q7 -18 14 -7 q5 11 11 4 q8 -17 15 -6 q5 10 11 3 q8 -17 15 -6 q5 10 11 4 q7 -15 14 -5"
+					/>
+				</svg>
+
+				{/* Pseudo-3D pencil: cylindrical gradient shading + contact shadow */}
+				<svg className="write-pencil" viewBox="0 0 66 84" aria-hidden="true">
+					<defs>
+						<linearGradient id="pencilBody" x1="0" y1="0" x2="1" y2="0">
+							<stop offset="0%" stopColor="#a8660f" />
+							<stop offset="18%" stopColor="#e7942f" />
+							<stop offset="45%" stopColor="#ffd486" />
+							<stop offset="62%" stopColor="#f0a83e" />
+							<stop offset="100%" stopColor="#9a5e0d" />
+						</linearGradient>
+						<linearGradient id="pencilWood" x1="0" y1="0" x2="1" y2="0">
+							<stop offset="0%" stopColor="#c98f4f" />
+							<stop offset="45%" stopColor="#f3d6a6" />
+							<stop offset="100%" stopColor="#b87a3c" />
+						</linearGradient>
+					</defs>
+
+					<ellipse className="pencil-shadow" cx="22" cy="73" rx="15" ry="3.5" />
+
+					<g transform="rotate(32 16 66)">
+						<rect className="pencil-eraser" x="11" y="6" width="10" height="8" rx="3" />
+						<rect className="pencil-ferrule" x="11" y="14" width="10" height="4" />
+						<rect className="pencil-body" x="11" y="18" width="10" height="30" />
+						<polygon className="pencil-wood" points="11,48 21,48 19,57 13,57" />
+						<polygon className="pencil-tip" points="13,57 19,57 16,66" />
+					</g>
+				</svg>
 			</div>
+
 			<div className="linear-loader" aria-hidden="true">
 				<span className="linear-loader-bar" />
 			</div>

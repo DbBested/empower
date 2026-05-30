@@ -12,6 +12,10 @@ const navLinks = [
 	{ href: '/contact', label: 'Contact' },
 ];
 
+// Visible keyboard-focus indicator (mouse clicks stay clean via focus-visible).
+const focusRing =
+	'focus:outline-none focus-visible:ring-2 focus-visible:ring-crab focus-visible:ring-offset-2 rounded-sm';
+
 type NavBodyProps = {
 	isMenuOpen: boolean;
 	toggleMenu: () => void;
@@ -57,7 +61,7 @@ const NavBody = ({ isMenuOpen, toggleMenu, closeMenu, pathname, light }: NavBody
 				href="/"
 				onClick={handleNavClick}
 				data-transition-manual="true"
-				className={`flex flex-row justify-between items-center font-poppins text-2xl font-bold ${logoColor}`}
+				className={`flex flex-row justify-between items-center font-poppins text-2xl font-bold ${logoColor} ${focusRing}`}
 			>
 				<span className="w-12 h-12 rounded-full overflow-hidden bg-sand-dollar mr-2 transition-transform duration-200 inline-block">
 					<img src="/logo.png" alt="Logo" className="w-full h-full object-cover" />
@@ -68,8 +72,9 @@ const NavBody = ({ isMenuOpen, toggleMenu, closeMenu, pathname, light }: NavBody
 			<button
 				type="button"
 				onClick={toggleMenu}
-				className={`hidden max-[900px]:block text-2xl cursor-pointer ${menuButtonColor}`}
+				className={`hidden max-[900px]:block text-2xl cursor-pointer ${menuButtonColor} ${focusRing}`}
 				aria-label="Toggle menu"
+				aria-expanded={isMenuOpen}
 			>
 				{isMenuOpen ? '✕' : '☰'}
 			</button>
@@ -87,9 +92,10 @@ const NavBody = ({ isMenuOpen, toggleMenu, closeMenu, pathname, light }: NavBody
 							href={link.href}
 							onClick={handleNavClick}
 							data-transition-manual="true"
+							aria-current={active ? 'page' : undefined}
 							className={`font-medium font-sans transition-colors duration-200 hover:text-crab ${
 								active ? 'text-crab' : linkIdle
-							}`}
+							} ${focusRing}`}
 						>
 							{link.label}
 						</Link>
@@ -122,7 +128,10 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<nav className="bg-transparent px-4 py-3 w-full absolute top-0 left-0 right-0 z-20">
+			<nav
+				className="bg-transparent px-4 py-3 w-full absolute top-0 left-0 right-0 z-20"
+				inert={showFloating}
+			>
 				<NavBody
 					isMenuOpen={isMenuOpen}
 					toggleMenu={toggleMenu}
@@ -136,7 +145,7 @@ export const Navbar = () => {
 				className={`bg-transparent px-4 py-3 w-full fixed top-0 left-0 right-0 z-[1000] transition-transform duration-500 ease-out will-change-transform ${
 					showFloating ? 'translate-y-0' : '-translate-y-full'
 				}`}
-				aria-hidden={!showFloating}
+				inert={!showFloating}
 			>
 				<NavBody
 					isMenuOpen={isMenuOpen}

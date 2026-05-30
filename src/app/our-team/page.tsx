@@ -1,7 +1,10 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { TeamMember } from '@/components/TeamMember';
 import { Parallax } from '@/components/Parallax';
 import { Reveal } from '@/components/Reveal';
+import { ScrollCue } from '@/components/ScrollCue';
+import { SectionSnap } from '@/components/SectionSnap';
 import {
 	Arrow,
 	Heart,
@@ -66,15 +69,16 @@ const teamMembers = [
 	},
 ];
 
+const founder = {
+	name: 'Vienna Dschung',
+	role: 'Founder',
+	description:
+		'Vienna founded Empower Initiative during her sophomore year of high school and remains deeply committed to this cause. As an oldest sibling, she has many years of experience tutoring younger kids. In school, Vienna has taken over 16 AP and dual enrollment classes, with a special interest in history and math. Outside of school, Vienna pursues many interests, such as serving on the Youth Council of the Asian American Pacific Islanders Commission, working with local nonprofit organizations, and advocating for plant-based food in schools.',
+	email: 'vz1689@hotmail.com',
+	imageUrl: '/team/alum/vienna.JPG',
+};
+
 const alum = [
-	{
-		name: 'Vienna Dschung',
-		role: 'Founder & President',
-		description:
-			'Vienna founded Empower Initiative during her sophomore year of high school and remains deeply committed to this cause. As an oldest sibling, she has many years of experience tutoring younger kids. In school, Vienna has taken over 12 AP and dual enrollment classes, with a special interest in history and math. Outside of school, Vienna pursues many interests, such as serving on the Youth Council of the Asian American Pacific Islanders Commission, working with local nonprofit organizations, and advocating for plant-based food in schools.',
-		email: 'vz1689@hotmail.com',
-		imageUrl: '/team/alum/vienna.JPG',
-	},
 	{
 		name: 'Kirsten Choi',
 		role: 'Vice President',
@@ -104,18 +108,19 @@ const alum = [
 export default function OurTeamPage() {
 	return (
 		<div className="flex flex-col w-full bg-white overflow-x-clip">
+			<SectionSnap targetId="founder" />
 			{/* HERO */}
-			<section className="relative pt-40 md:pt-48 pb-20 md:pb-28 px-6 overflow-hidden">
+			<section className="relative min-h-[100svh] flex flex-col items-center justify-center px-6 pt-28 pb-24 overflow-hidden">
 				<Parallax speed={-0.15} className="absolute top-32 left-6 md:left-20 text-crab/80 pointer-events-none">
 					<Sparkle className="w-10 h-10 animate-wiggle" style={{ ['--rot' as string]: '0deg' }} />
 				</Parallax>
 				<Parallax speed={-0.25} className="absolute top-40 right-8 md:right-28 text-butterscotch pointer-events-none">
 					<Star className="w-14 h-14 animate-float" style={{ ['--rot' as string]: '12deg' }} />
 				</Parallax>
-				<Parallax speed={0.2} className="absolute bottom-6 left-10 md:left-32 text-vista-blue pointer-events-none">
+				<Parallax speed={0.2} className="absolute bottom-24 left-10 md:left-32 text-vista-blue pointer-events-none">
 					<Flower className="w-16 h-16 animate-float-slow" />
 				</Parallax>
-				<Parallax speed={0.15} className="absolute bottom-10 right-10 md:right-32 text-crab/80 pointer-events-none">
+				<Parallax speed={0.15} className="absolute bottom-28 right-10 md:right-32 text-crab/80 pointer-events-none">
 					<Scribble className="w-20 h-20 animate-spin-slow" />
 				</Parallax>
 
@@ -135,8 +140,64 @@ export default function OurTeamPage() {
 						behind Empower.
 					</h1>
 					<p className="mt-6 md:mt-8 text-gray text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-						Student officers, founders, and alumni who've built Empower Initiative from the ground up — and the volunteers who keep it growing.
+						Student officers, founders, and alumni who&apos;ve built Empower Initiative from the ground up — and the volunteers who keep it growing.
 					</p>
+				</Reveal>
+
+				<ScrollCue
+					targetId="founder"
+					label="Scroll"
+					clearance={96}
+					className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+				/>
+			</section>
+
+			{/* FOUNDER */}
+			<section className="relative px-6 pt-12 md:pt-16 pb-20 md:pb-28 overflow-hidden">
+				<Parallax speed={0.2} className="absolute -left-10 top-10 text-sand-dollar pointer-events-none">
+					<Scribble className="w-28 md:w-40 h-auto animate-spin-slow" />
+				</Parallax>
+				<Parallax speed={-0.18} className="absolute right-2 md:right-16 bottom-10 text-butterscotch/80 pointer-events-none">
+					<Star className="w-12 h-12 animate-float" style={{ ['--rot' as string]: '-10deg' }} />
+				</Parallax>
+
+				<Reveal className="max-w-5xl mx-auto relative">
+					<div id="founder" className="relative grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-10 md:gap-14 items-center bg-white rounded-[32px] ring-1 ring-gray-200 shadow-[0_30px_70px_-30px_rgba(32,78,207,0.4)] p-8 md:p-12 overflow-hidden">
+						<div className="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-sand-dollar/40 blur-2xl pointer-events-none" aria-hidden="true" />
+
+						<div className="relative mx-auto md:mx-0">
+							<div className="absolute -inset-3 rounded-[28px] bg-sand-dollar/60 -rotate-2 -z-10" aria-hidden="true" />
+							<div className="relative w-60 h-72 md:w-full md:h-[26rem] rounded-[24px] overflow-hidden ring-4 ring-white shadow-md">
+								<Image
+									src={founder.imageUrl}
+									alt={founder.name}
+									fill
+									sizes="(min-width: 768px) 420px, 240px"
+									className="object-cover"
+								/>
+							</div>
+						</div>
+
+						<div className="relative text-center md:text-left">
+							<p className="text-xs md:text-sm tracking-[0.25em] uppercase text-butterscotch font-semibold mb-4">
+								The Founder
+							</p>
+							<h2 className="text-deep-ocean leading-tight mb-6">{founder.name}</h2>
+							<Squiggle className="mb-7 w-40 h-5 text-butterscotch mx-auto md:mx-0" />
+							<p className="text-gray text-sm md:text-base leading-relaxed mb-8">
+								{founder.description}
+							</p>
+							{founder.email && (
+								<a
+									href={`mailto:${founder.email}`}
+									className="group inline-flex items-center gap-2 text-deep-ocean font-semibold border-b-2 border-deep-ocean/40 hover:border-crab hover:text-crab pb-0.5 transition-colors text-sm"
+								>
+									Get in touch
+									<Arrow className="w-7 h-4 group-hover:translate-x-1 transition-transform" />
+								</a>
+							)}
+						</div>
+					</div>
 				</Reveal>
 			</section>
 
@@ -159,13 +220,13 @@ export default function OurTeamPage() {
 					<h2 className="text-deep-ocean mb-6 leading-tight">Current leadership</h2>
 					<Squiggle className="mx-auto mb-8 w-40 h-5 text-crab" />
 					<p className="text-gray text-base md:text-lg leading-relaxed">
-						The student leaders running Empower Initiative this year — coordinating tutors, building curriculum, and keeping the community connected.
+						Passionate and hardworking student officers that pair students with tutors, organize events, facilitate learning, and keep the community connected
 					</p>
 				</Reveal>
 
-				<div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 relative">
+				<div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 md:gap-10 relative">
 					{teamMembers.map((member, i) => (
-						<Reveal key={member.name} delay={(i % 2) * 100} from="up">
+						<Reveal key={member.name} delay={(i % 2) * 100} from="up" className="w-full lg:w-[calc(50%-1.25rem)]">
 							<TeamMember
 								name={member.name}
 								role={member.role}
@@ -194,16 +255,16 @@ export default function OurTeamPage() {
 					<p className="text-xs md:text-sm tracking-[0.25em] uppercase text-vista-blue font-semibold mb-5">
 						02 / Alumni
 					</p>
-					<h2 className="text-deep-ocean mb-6 leading-tight">Founders & alumni</h2>
+					<h2 className="text-deep-ocean mb-6 leading-tight">Alumni</h2>
 					<Squiggle className="mx-auto mb-8 w-40 h-5 text-vista-blue" />
 					<p className="text-gray text-base md:text-lg leading-relaxed">
-						The students who built Empower from the start — and have since moved on to their next chapters.
+						Students who were part of the journey of building Empower Initiative and have since moved on to their next chapters
 					</p>
 				</Reveal>
 
-				<div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 relative">
+				<div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8 md:gap-10 relative">
 					{alum.map((member, i) => (
-						<Reveal key={member.name} delay={(i % 2) * 100} from="up">
+						<Reveal key={member.name} delay={(i % 2) * 100} from="up" className="w-full lg:w-[calc(50%-1.25rem)]">
 							<TeamMember
 								name={member.name}
 								role={member.role}
@@ -238,7 +299,7 @@ export default function OurTeamPage() {
 					<h2 className="text-deep-ocean mb-6 leading-tight">Want to tutor with us?</h2>
 					<Squiggle className="mx-auto mb-8 w-40 h-5 text-crab" />
 					<p className="text-gray text-base md:text-lg leading-relaxed mb-10">
-						We're always looking for high-school volunteers who care about learning and community. Applications open each fall.
+						We&apos;re always looking for high-school volunteers who care about learning and community. Applications open each fall.
 					</p>
 					<Link
 						href="/join-us"

@@ -16,11 +16,6 @@ const services = [
 		description:
 			'Bridge cultural gaps while learning, helping students understand both language and cultural contexts.',
 	},
-	{
-		title: 'Test Preparation',
-		description:
-			'Targeted preparation for standardized tests, including SAT, ACT, and English proficiency exams.',
-	},
 ];
 
 export default function TutoringPage() {
