@@ -30,7 +30,7 @@ const tutoringSection = {
 	overline: 'Tutoring',
 	title: 'Personalized academic support.',
 	body: 'Our tutors meet students exactly where they are. Every session is shaped around one learner, their goals, and their pace.',
-	href: '/tutoring',
+	href: '/resources/tutoring-guidelines',
 	accent: 'text-butterscotch',
 	offerings: [
 		'English language learning',
@@ -44,17 +44,17 @@ const joinPaths = [
 	{
 		label: 'Parents',
 		body: 'Find a caring, vetted tutor matched to your child’s needs.',
-		href: '/join-us',
+		href: '/chapters',
 	},
 	{
 		label: 'Students',
 		body: 'Volunteer your skills and mentor a learner in your community.',
-		href: '/join-us',
+		href: '/chapters',
 	},
 	{
 		label: 'Future leaders',
 		body: 'Bring Empower to your school and start a new chapter.',
-		href: '/join-us',
+		href: '/start-a-chapter',
 	},
 ];
 
@@ -163,13 +163,13 @@ export default function HomePage() {
 					<div className="flex flex-wrap gap-4 mt-6 md:mt-8 justify-center">
 						<Link
 							className="button-primary px-8 py-4 rounded-md font-semibold text-base shadow-lg hover:scale-[1.03] transition-transform"
-							href="/join-us"
+							href="/chapters"
 						>
 							Find a Tutor
 						</Link>
 						<Link
 							className="bg-white/95 hover:bg-white text-deep-ocean px-8 py-4 rounded-md font-semibold text-base transition-transform hover:scale-[1.03]"
-							href="/tutoring"
+							href="/chapters"
 						>
 							Become a Tutor
 						</Link>
@@ -196,11 +196,17 @@ export default function HomePage() {
 
 			{/* STATS */}
 			<section className="relative px-6 py-24 md:py-32">
-				<Parallax speed={0.2} className="absolute -left-6 top-12 text-sand-dollar pointer-events-none">
-					<Pencil className="w-32 md:w-48 h-auto -rotate-12" />
+				<Parallax speed={0.2} className="absolute -left-4 top-12 text-crab/45 pointer-events-none">
+					<Flower className="w-20 md:w-28 h-auto animate-float-slow" />
 				</Parallax>
 				<Parallax speed={-0.2} className="absolute right-2 bottom-8 text-vista-blue/60 pointer-events-none">
 					<Scribble className="w-28 md:w-40 h-auto animate-spin-slow" />
+				</Parallax>
+				<Parallax speed={-0.15} className="absolute right-8 md:right-32 top-16 text-butterscotch/80 pointer-events-none">
+					<Star className="w-12 h-12 animate-float" />
+				</Parallax>
+				<Parallax speed={0.15} className="absolute left-1/4 bottom-12 text-vista-blue/50 pointer-events-none">
+					<Sparkle className="w-9 h-9 animate-wiggle" />
 				</Parallax>
 
 				<div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-4 text-center relative">
@@ -220,8 +226,14 @@ export default function HomePage() {
 
 			{/* ABOUT — editorial, image right with floating stat card */}
 			<section className="relative px-6 py-24 md:py-36 overflow-hidden">
-				<Parallax speed={0.18} className="absolute -left-12 top-24 text-sand-dollar pointer-events-none">
+				<Parallax speed={0.18} className="absolute -left-12 top-24 text-vista-blue/40 pointer-events-none">
 					<Pencil className="w-36 md:w-52 h-auto -rotate-6" />
+				</Parallax>
+				<Parallax speed={-0.22} className="absolute left-6 md:left-24 bottom-16 text-crab/60 pointer-events-none">
+					<Sparkle className="w-10 h-10 animate-wiggle" />
+				</Parallax>
+				<Parallax speed={0.2} className="absolute -right-4 bottom-24 text-crab/55 pointer-events-none">
+					<Flower className="w-14 h-14 animate-spin-slow" />
 				</Parallax>
 
 				<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 items-center relative">
@@ -282,10 +294,19 @@ export default function HomePage() {
 
 			{/* TUTORING — tinted band, image left + text right, diagonal top divider */}
 			<section className="relative isolate px-6 py-24 md:py-36 overflow-hidden">
-				<DiagonalTop fill="bg-sand-dollar" accent="bg-butterscotch" direction="left" />
+				<DiagonalTop fill="bg-sand-dollar" accent="bg-crab" direction="left" />
 
-				<Parallax speed={-0.22} className="absolute right-4 md:right-16 top-[9vw] text-crab/40 pointer-events-none">
+				<Parallax speed={-0.22} className="absolute right-4 md:right-16 top-[9vw] text-crab/45 pointer-events-none">
 					<Scribble className="w-28 md:w-40 h-auto animate-spin-slow" />
+				</Parallax>
+				<Parallax speed={0.2} className="absolute -left-8 top-[12vw] text-vista-blue/55 pointer-events-none">
+					<Flower className="w-24 md:w-32 h-auto animate-float-slow" />
+				</Parallax>
+				<Parallax speed={-0.18} className="absolute left-10 md:left-28 bottom-12 text-crab/60 pointer-events-none">
+					<Star className="w-11 h-11 animate-float" />
+				</Parallax>
+				<Parallax speed={0.25} className="absolute right-1/4 bottom-10 text-vista-blue/60 pointer-events-none">
+					<Sparkle className="w-9 h-9 animate-wiggle" />
 				</Parallax>
 
 				<div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center relative">
@@ -299,7 +320,7 @@ export default function HomePage() {
 								className="object-cover"
 							/>
 						</div>
-						<div className="absolute -top-5 -right-4 md:-right-6 bg-butterscotch text-deep-ocean rounded-full px-5 py-2 text-sm font-poppins font-bold shadow-[0_14px_30px_-10px_rgba(234,152,54,0.9)] rotate-3">
+						<div className="absolute -top-5 -right-4 md:-right-6 bg-deep-ocean text-white rounded-full px-5 py-2 text-sm font-poppins font-bold shadow-[0_14px_30px_-10px_rgba(30,64,175,0.6)] rotate-3">
 							100% free
 						</div>
 					</Reveal>
@@ -395,7 +416,7 @@ export default function HomePage() {
 				<Parallax speed={-0.25} className="absolute right-6 md:right-16 top-16 text-vista-blue/60 pointer-events-none">
 					<Star className="w-14 h-14 animate-float" />
 				</Parallax>
-				<Parallax speed={0.2} className="absolute left-1/4 bottom-8 text-butterscotch/70 pointer-events-none">
+				<Parallax speed={0.2} className="absolute left-1/4 bottom-8 text-vista-blue/55 pointer-events-none">
 					<Flower className="w-16 h-16 animate-spin-slow" />
 				</Parallax>
 				<Parallax speed={-0.3} className="absolute right-1/4 bottom-4 text-crab/50 pointer-events-none">

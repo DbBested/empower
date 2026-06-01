@@ -1,11 +1,28 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import Link from 'next/link';
+import { Poppins, Open_Sans } from 'next/font/google';
 import { Navbar } from '@/components/Layout/Navbar';
 import { PageTransition } from '@/components/PageTransition';
 import { SmoothScroll } from '@/components/SmoothScroll';
 import { TransitionContent } from '@/components/TransitionContent';
 import { Heart, Sparkle, Flower } from '@/components/Doodles';
 import './globals.css';
+
+const poppins = Poppins({
+	subsets: ['latin'],
+	weight: ['300', '400', '500', '600', '700', '800', '900'],
+	style: ['normal', 'italic'],
+	variable: '--ff-poppins',
+	display: 'swap',
+});
+
+const openSans = Open_Sans({
+	subsets: ['latin'],
+	weight: ['400', '500', '600'],
+	variable: '--ff-open-sans',
+	display: 'swap',
+});
 
 export const metadata: Metadata = {
 	title: 'Empower Initiative',
@@ -28,17 +45,31 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-const footerNav = {
+const ExternalLinkIcon = (props: React.SVGProps<SVGSVGElement>) => (
+	<svg viewBox="0 0 24 24" fill="none" strokeWidth="2" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+		<path d="M15 3h6v6" />
+		<path d="M10 14 21 3" />
+		<path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+	</svg>
+);
+
+type FooterLink = { href: string; label: string; external?: boolean };
+const footerNav: { explore: FooterLink[]; involved: FooterLink[] } = {
 	explore: [
+		{ href: '/about', label: 'Our Story' },
 		{ href: '/our-team', label: 'Our Team' },
-		{ href: '/tutoring', label: 'Tutoring' },
-		{ href: '/resources', label: 'Resources' },
-		{ href: '/webinars', label: 'Webinars' },
+		{ href: '/chapters', label: 'Find Your Chapter' },
+		{ href: '/start-a-chapter', label: 'Start a Chapter' },
 	],
 	involved: [
-		{ href: '/join-us', label: 'Join Us' },
-		{ href: '/donate', label: 'Donate' },
+		{ href: '/resources/tutoring-guidelines', label: 'Tutoring Guidelines' },
+		{ href: '/resources/officer-roles', label: 'Officer Roles' },
 		{ href: '/contact', label: 'Contact' },
+		{
+			href: 'https://www.zeffy.com/en-US/donation-form/donate-to-empower-initiative',
+			label: 'Donate',
+			external: true,
+		},
 	],
 };
 
@@ -46,7 +77,7 @@ const footerLinkClass = 'text-white/70 hover:text-white transition-colors durati
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" className={`${poppins.variable} ${openSans.variable}`}>
 			<body>
 				<SmoothScroll>
 				<PageTransition />
@@ -69,12 +100,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 							<div className="grid gap-12 md:gap-10 md:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
 								{/* Brand */}
 								<div className="max-w-sm">
-									<a href="/" className="inline-flex items-center gap-3 font-poppins text-xl font-bold text-white">
+									<Link href="/" className="inline-flex items-center gap-3 font-poppins text-xl font-bold text-white">
 										<span className="w-11 h-11 rounded-full overflow-hidden bg-sand-dollar inline-block shrink-0">
 											<img src="/logo.png" alt="Empower Initiative logo" className="w-full h-full object-cover" />
 										</span>
 										Empower Initiative
-									</a>
+									</Link>
 									<p className="mt-5 text-sm leading-relaxed text-white/70 max-w-xs">
 										A local tutoring nonprofit pairing high-school volunteers with students who want to learn — free, personalized, and rooted in real relationships.
 									</p>
@@ -86,7 +117,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 									<ul className="list-none p-0 m-0 space-y-3 text-sm">
 										{footerNav.explore.map((link) => (
 											<li key={link.href}>
-												<a href={link.href} className={footerLinkClass}>{link.label}</a>
+												<Link href={link.href} className={footerLinkClass}>{link.label}</Link>
 											</li>
 										))}
 									</ul>
@@ -98,7 +129,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 									<ul className="list-none p-0 m-0 space-y-3 text-sm">
 										{footerNav.involved.map((link) => (
 											<li key={link.href}>
-												<a href={link.href} className={footerLinkClass}>{link.label}</a>
+												{link.external ? (
+													<a
+														href={link.href}
+														target="_blank"
+														rel="noreferrer noopener"
+														className={`inline-flex items-center gap-1.5 ${footerLinkClass}`}
+													>
+														{link.label}
+														<ExternalLinkIcon className="w-3.5 h-3.5" />
+													</a>
+												) : (
+													<Link href={link.href} className={footerLinkClass}>{link.label}</Link>
+												)}
 											</li>
 										))}
 									</ul>
@@ -131,8 +174,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 							<div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/60">
 								<p>© {new Date().getFullYear()} Empower Initiative. All rights reserved.</p>
-								<p className="inline-flex items-center gap-1.5">
-									Made with <Heart className="w-4 h-4 text-crab" aria-hidden="true" /> by student volunteers.
+								<p className="inline-flex items-center gap-1">
+									Website made with <Heart className="w-4 h-4 text-crab" aria-hidden="true" /> by{' '}
+									<a
+										href="https://dohunkim.xyz"
+										target="_blank"
+										rel="noreferrer noopener"
+										className={footerLinkClass}
+									>
+										Dohun Kim
+									</a>
 								</p>
 							</div>
 						</div>

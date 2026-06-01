@@ -1,0 +1,225 @@
+{
+  "_comment": "Page copy as data. Edit wording here, not in components. Route map: about -> /about (Our Story); team -> /our-team (program-level provisional officers + founder; page ends with a 'Look for chapter-specific officers' link -> /chapters); tutors -> /resources/tutoring-guidelines (reference); officers -> /resources/officer-roles (reference); startAChapter -> /start-a-chapter (full guide + interestForm, under the Chapters menu); contact -> /contact (footer). Nav: About (Our Story, Our Team), Chapters (Find Your Chapter, Start a Chapter), Resources (Tutoring Guidelines, Officer Roles), Donate button, Contact in footer. Resources is informational only, not a funnel. Home is frozen. Per-chapter officers/alums + the four signup links are typed data in src/content/chapters/ (TS modules typed against src/content/types.ts), shown on the /chapters locator and /chapters/[slug] pages; the locator's intro carries the 'join us' welcome. 'parents' is brief family guidance on chapter pages. Light cleanup only from the owner's doc.",
+
+  "about": {
+    "aboutEmpower": "Empower Initiative is a student-run tutoring nonprofit that pairs high-school volunteers with elementary and middle school students who want to learn. The service is free, personalized, and rooted in genuine relationships. We were founded to help immigrant students who struggle with English as a second language, and we've since grown into a community of tutors supporting learners across many subjects.",
+    "whatWeDo": "We offer free one-on-one and small-group tutoring across academic subjects at every level — from learning how to read to competition math. Our volunteers meet students where they are, and have even branched into teaching chess and practicing conversation skills. Sessions run on a consistent schedule, so students get steady, dependable support and tutors build real relationships over time.",
+    "mission": "We believe quality education should be accessible to every student, regardless of background or means. By empowering high-school volunteers to teach, we build confidence on both sides of the table and strengthen our local community.",
+    "services": [
+      {
+        "title": "English Language Learning",
+        "description": "Specialized tutoring for immigrant students learning English, focusing on conversation, writing, and comprehension skills."
+      },
+      {
+        "title": "Academic Support",
+        "description": "Comprehensive academic assistance in various subjects, tailored to each student's curriculum and learning style."
+      },
+      {
+        "title": "Cultural Exchange",
+        "description": "Bridge cultural gaps while learning, helping students understand both language and cultural contexts."
+      }
+    ]
+  },
+
+  "team": {
+    "_note": "Program-level team for /our-team. For now the founding chapter's members also serve as the program's provisional officers. The /our-team page ends with a link 'Look for chapter-specific officers' -> /chapters.",
+    "founder": {
+      "name": "Vienna Dschung",
+      "role": "Founder",
+      "description": "Vienna founded Empower Initiative during her sophomore year of high school and remains deeply committed to this cause. As an oldest sibling, she has many years of experience tutoring younger kids. In school, Vienna has taken over 16 AP and dual enrollment classes, with a special interest in history and math. Outside of school, Vienna pursues many interests, such as serving on the Youth Council of the Asian American Pacific Islanders Commission, working with local nonprofit organizations, and advocating for plant-based food in schools.",
+      "email": "vz1689@hotmail.com",
+      "imageUrl": "/team/alum/vienna.JPG"
+    },
+    "provisionalOfficers": [
+      {
+        "name": "Anlin Huang",
+        "role": "President",
+        "description": "Anlin has been a tutor at Empower Initiative for over a year. Over that time, she has built strong connections with the students she has worked with and helped many of them to succeed in their courses. Anlin is very passionate about educational equality, and loves working with children to help them reach their full potential. Aside from Empower Initiative, Anlin serves as treasurer in the Class of 2028 student government, as well as the financial department head of the Angel Dance Youth League, where she helps to spread the culture of Chinese Traditional Dance across the community. Anlin is an All-State violist and plays in the Boston Youth Symphony Orchestras, and in her free time, she enjoys painting, playing with her chickens, and spending time with her family.",
+        "email": "huanganlin2@gmail.com",
+        "imageUrl": "/team/anlin.png"
+      },
+      {
+        "name": "Zoey Ying",
+        "role": "Vice President",
+        "description": "Zoey has been an active member of Empower Initiative for over a year. She has worked with many different kids, building bonds and helping them thrive in their academic endeavors. By doing so, she has experience in tutoring and helping kids of different ages and abilities. Zoey also challenges herself by taking two languages, Latin and French, as well as speaking Cantonese with her parents at home. Outside of Empower Initiative, Zoey does ballet and plays the viola. In her free time, Zoey enjoys crocheting, serving her community, hanging out with her family and friends, baking as well as reading books.",
+        "email": "zoeysying@gmail.com",
+        "imageUrl": "/team/zoey.jpg"
+      },
+      {
+        "name": "Michelle Bi",
+        "role": "Secretary",
+        "description": "Michelle has been an active member of Empower Initiative for over a year, where she has worked with students of different ages, building meaningful connections and supporting their academic growth. Through this experience, she has developed strong tutoring skills and the ability to adapt to a variety of learning styles. She also speaks Mandarin and uses it to support students in their learning. In addition to her work with Empower, Michelle is a member of her school's fencing team. Outside of school and volunteering, Michelle enjoys traveling, baking, reading, and spending time with family and friends.",
+        "email": "michelle.kailan.bi@gmail.com",
+        "imageUrl": "/team/michelle.jpg"
+      },
+      {
+        "name": "Ethan Zhuang",
+        "role": "Treasurer",
+        "description": "Ethan has been a tutor at Empower Initiative for over a year, working with a wide range of students in various subjects. He focuses on teaching the underlying logic of a topic rather than just having students memorize steps for a test, helping them understand how to handle more difficult problems on their own. Ethan is passionate about helping others and loves seeing his students succeed as they learn new concepts. In school, Ethan is an active member of the science team and the math team, where he competes in the AMCs and other competitions. He also competes with GNCE Robotics, where his team is ranked top 20 in the world and has traveled to the World Championships. Outside of school, Ethan is a competitive speedcuber, placing 5th at the World Championships. He also plays the violin and serves as a section leader in the Rivers Youth Symphony.",
+        "email": "ethanzhuang2400@gmail.com",
+        "imageUrl": "/team/ethanzhu.png"
+      },
+      {
+        "name": "Felix Dschung",
+        "role": "Historian",
+        "description": "Felix is a founding member at Empower Initiative and has stayed committed to the organization for the past three years. Entering his final year of high school, he has now five years of mentoring and tutoring students. In school, he serves as the Captain of the Robotics Team, President of the Cybersecurity Club, and Co-President of Computer Science Club. Felix has taken 8 AP courses in high school so far and is proficient in English, Cantonese, and Mandarin.",
+        "email": "",
+        "imageUrl": "/team/felix.jpeg"
+      },
+      {
+        "name": "Dohun Kim",
+        "role": "Website Coordinator",
+        "description": "Dohun has been a tutor at Empower Initiative for over a year. He likes to support students tackling difficult concepts through asking guiding questions instead of directly teaching them. He has experience in teaching a wide range of subjects from novice Spanish to chess and competition math. Outside of the Empower Initiative, he has mentored less experienced 4th graders to advanced 7th grade students in First Lego League. In his freshman year, Dohun has gotten a 5 on the AP Calculus BC and Computer Science A exams, 141 on AMC 10A, and a 9 on the AIME.",
+        "email": "genius0412.tech@gmail.com",
+        "imageUrl": "/team/DohunKim.JPG"
+      }
+    ]
+  },
+
+  "tutors": {
+    "whatTheyDo": "Empower tutors guide students through whatever they're working on — homework, reading, test prep, or a tricky concept — one session at a time. Rather than handing over answers, tutors ask guiding questions and adapt to each student's pace and learning style, building both understanding and confidence. Most tutoring happens in consistent weekly sessions, so students and tutors can build a real relationship over time.",
+    "benefits": [
+      "Volunteer hours",
+      "Genuine connections with the community",
+	  "Lasting experience that builds confidence and communication skills",
+	  "The chance to make a real difference in a student’s life"
+    ],
+    "responsibilities": [
+      "Being flexible with the student",
+      "Being patient",
+      "Letting the officers know in case of absence"
+    ]
+  },
+
+  "officers": [
+    {
+      "role": "President",
+      "expectations": [
+        "Passion for working with students, teaching, and educational accessibility",
+        "Leadership and collaboration with the team",
+        "Initiative-taking and problem-solving skills",
+        "Clear communication with parents regarding schedules, attendance, events, and more",
+        "Continued dedication to creating a successful chapter"
+      ],
+      "responsibilities": [
+        "Track attendance at each meeting",
+        "Maintain consistent communication with parents, parent volunteers, the school, and your club advisor",
+        "Pair student volunteers with Empower tutors",
+        "Oversee each session and ensure order, student and parent satisfaction, and a quality learning environment",
+        "Create and/or improve all administrative and organizational documents",
+        "Lead initiative projects such as fundraising, outreach, and school event participation",
+        "Award volunteer of the month",
+        "Help organize, support/attend, and market Empower's spring webinars among the district community"
+      ]
+    },
+    {
+      "role": "Vice President",
+      "expectations": [
+        "Passion for working with students, teaching, and educational accessibility",
+        "Collaboration with the team",
+        "Initiative-taking and problem-solving skills",
+        "Clear communication with parents regarding schedules, attendance, events, and more",
+        "Continued dedication to creating a successful chapter"
+      ],
+      "responsibilities": [
+        "Train new volunteers",
+        "Improve upon organizational and administrative documents",
+        "Clarify current guidelines: coordinate a presentation at the beginning of the year",
+        "Assist the president's duties",
+        "Communicate with parents, parent volunteers, the school, and club advisor",
+        "Fill in for absent officers",
+        "Manage the chapter email"
+      ]
+    },
+    {
+      "role": "Secretary",
+      "expectations": [
+        "Attend and be present at most meetings",
+        "Organization skills",
+        "Able to manage data and forms",
+        "Good communication skills"
+      ],
+      "responsibilities": {
+        "Tracking": [
+          "Record volunteer hours",
+          "Create and assign attendance forms",
+          "Keep accurate and organized records of volunteer participation"
+        ],
+        "Organization": [
+          "Keep records organized and up to date",
+          "Ensure smooth operations",
+          "Manage systems of information"
+        ],
+        "Communication & Expansion": [
+          "Update tutors, parents, and officers",
+          "Send reminders",
+          "Support expansion efforts by reaching out to potential leaders and organizing chapter details"
+        ]
+      }
+    },
+    {
+      "role": "Treasurer",
+      "expectations": [
+        "Be present at nearly every meeting",
+        "Demonstrate strong financial skills and manage money responsibly"
+      ],
+      "responsibilities": [
+        "Manage club funds and fundraising",
+        "Pay for supplies, snacks, and website costs",
+        "Reimburse volunteers",
+        "Apply for grants"
+      ]
+    },
+    {
+      "role": "Historian",
+      "expectations": [
+        "Be there at most, if not all, club meetings",
+        "Good with social media and taking clear pictures",
+        "Good with communication"
+      ],
+      "responsibilities": {
+        "Instagram visuals": [
+          "Post the Volunteer of the Month, chosen by the Secretary",
+          "Post one Reel per week",
+          "Post a monthly post of volunteer photos"
+        ],
+        "Photos": [
+          "Take pictures of volunteers and students",
+          "Provide photos for the parent group chat and Instagram"
+        ],
+        "Event flyers": [
+          "Create appealing flyers advertising the club's various events",
+          "Advertise and promote these events on Instagram"
+        ]
+      }
+    }
+  ],
+
+  "startAChapter": {
+    "interestForm": "https://docs.google.com/forms/d/e/1FAIpQLSdxo2vkzIJ2ge4RpimZMBOqk_eZitidO0Dqu0MBaf8HlZEluA/viewform",
+    "steps": [
+      "Fill out the interest form.",
+      "Create a system to communicate with tutees and their parents.",
+      "Find an advisor and/or a space that can be used (such as the library), and set a consistent meeting time (e.g. weekly on Mondays, or MWF). We recommend MWF timing like we use.",
+      "Develop a system for recording hours. We recommend Google Forms on Google Classroom like we use.",
+      "Make an interest form to gather tutors, and reach out to interested students.",
+      "Find students/friends to fill the officer roles.",
+      "Reach out to elementary/middle schools in your area.",
+      "Create social media accounts for your school's Empower chapter.",
+      "Gather feedback from tutors and tutees after each meeting."
+    ]
+  },
+
+  "parents": [
+    "Join the parent group chat",
+    "Sign up your student",
+    "Communicate child absences"
+  ],
+
+  "contact": {
+    "email": "empowerinit@gmail.com",
+    "instagram": "@empower_init",
+    "instagramUrl": "https://www.instagram.com/empower_init",
+    "note": "Per-chapter signup links live in content/chapters/."
+  }
+}

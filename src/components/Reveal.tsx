@@ -20,8 +20,17 @@ const fromMap: Record<NonNullable<Props['from']>, string> = {
 export const Reveal = ({ children, delay = 0, className = '', from = 'up' }: Props) => {
 	const ref = useRef<HTMLDivElement>(null);
 	const [visible, setVisible] = useState(false);
+	// When reduced motion is requested, render fully visible with no transition
+	// at all (not just an instant reveal — the transition classes are dropped).
+	const [reduced, setReduced] = useState(false);
 
 	useEffect(() => {
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			setReduced(true);
+			setVisible(true);
+			return;
+		}
+
 		const node = ref.current;
 		if (!node) return;
 		const observer = new IntersectionObserver(
@@ -36,6 +45,14 @@ export const Reveal = ({ children, delay = 0, className = '', from = 'up' }: Pro
 		observer.observe(node);
 		return () => observer.disconnect();
 	}, []);
+
+	if (reduced) {
+		return (
+			<div ref={ref} className={className}>
+				{children}
+			</div>
+		);
+	}
 
 	return (
 		<div

@@ -127,13 +127,13 @@ export const Plus = (props: DoodleProps) => (
 );
 
 export const Heart = (props: DoodleProps) => (
-	<svg viewBox="0 0 32 30" fill="none" {...props}>
+	<svg viewBox="0 0 32 30" {...props} {...props.fill ? {} : { fill: 'none' }}>
 		<path
 			d="M16 26 C 4 18, 2 8, 9 5 C 13 3, 16 7, 16 10 C 16 7, 19 3, 23 5 C 30 8, 28 18, 16 26 Z"
 			stroke="currentColor"
 			strokeWidth="2.5"
 			strokeLinejoin="round"
-			fill="none"
+			fill="inherit"
 		/>
 	</svg>
 );

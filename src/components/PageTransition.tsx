@@ -94,9 +94,12 @@ export const PageTransition = () => {
 			const anchor = target?.closest('a');
 			if (!anchor) return;
 			if (anchor.dataset.transitionManual === 'true') return;
+			// Leaflet map controls (zoom +/- are <a href="#">) live inside the map
+			// container; never treat those as page navigations.
+			if (anchor.closest('.leaflet-container')) return;
 			if (anchor.target && anchor.target !== '_self') return;
 			const href = anchor.getAttribute('href');
-			if (!href || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+			if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
 			const url = new URL(anchor.href, window.location.href);
 			if (url.origin !== window.location.origin) return;

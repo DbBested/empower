@@ -11,6 +11,7 @@ import {
 	Star,
 	Underline,
 } from '@/components/Doodles';
+import { contact } from '@/content/copy';
 
 const EmailIcon = (props: React.SVGProps<SVGSVGElement>) => (
 	<svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -26,6 +27,9 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 		<circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
 	</svg>
 );
+
+const instagramHref =
+	contact.instagramUrl ?? `https://www.instagram.com/${contact.instagram.replace(/^@/, '')}`;
 
 export default function ContactPage() {
 	return (
@@ -68,7 +72,7 @@ export default function ContactPage() {
 
 			{/* CONTACT METHODS */}
 			<section className="relative px-6 py-20 md:py-28 border-y border-gray-100 overflow-hidden">
-				<Parallax speed={0.25} className="absolute -left-6 top-16 text-sand-dollar pointer-events-none">
+				<Parallax speed={0.25} className="absolute -left-6 top-16 text-crab/35 pointer-events-none">
 					<Pencil className="w-32 md:w-48 h-auto -rotate-12" />
 				</Parallax>
 				<Parallax speed={-0.2} className="absolute right-4 md:right-24 top-24 text-butterscotch pointer-events-none">
@@ -105,10 +109,10 @@ export default function ContactPage() {
 								For tutoring requests, partnerships, press, or anything else — our inbox is open.
 							</p>
 							<a
-								href="mailto:empowerinit@gmail.com"
+								href={`mailto:${contact.email}`}
 								className="inline-flex items-center gap-2 text-deep-ocean font-semibold border-b-2 border-deep-ocean/40 hover:border-crab hover:text-crab pb-0.5 transition-colors text-sm md:text-base break-all"
 							>
-								empowerinit@gmail.com
+								{contact.email}
 								<Arrow className="w-6 h-4 -mb-0.5 group-hover:translate-x-1 transition-transform shrink-0" />
 							</a>
 						</article>
@@ -129,12 +133,12 @@ export default function ContactPage() {
 								Updates, events, and behind-the-scenes from our chapters and tutors.
 							</p>
 							<a
-								href="https://www.instagram.com/empower_init"
+								href={instagramHref}
 								target="_blank"
 								rel="noreferrer noopener"
 								className="inline-flex items-center gap-2 text-deep-ocean font-semibold border-b-2 border-deep-ocean/40 hover:border-vista-blue hover:text-vista-blue pb-0.5 transition-colors text-sm md:text-base"
 							>
-								@empower_init
+								{contact.instagram}
 								<Arrow className="w-6 h-4 -mb-0.5 group-hover:translate-x-1 transition-transform shrink-0" />
 							</a>
 						</article>

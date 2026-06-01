@@ -13,6 +13,13 @@ export const Parallax = ({ speed = 0.3, children, className = '' }: Props) => {
 	const [offset, setOffset] = useState(0);
 
 	useEffect(() => {
+		// Honor reduced-motion: skip the scroll-linked transform so the element
+		// rests at its natural position (offset stays 0).
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			setOffset(0);
+			return;
+		}
+
 		let ticking = false;
 		const update = () => {
 			if (!ref.current) return;

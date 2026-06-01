@@ -17,6 +17,16 @@ Dev server runs on **port 5173** (configured via `next dev -p 5173`). Don't run 
 
 This is the website for **Empower Initiative**, a high-school tutoring nonprofit. It's a **Next.js 15 App Router** project with **React 19** and **TypeScript**.
 
+**Content & data.** Chapter data is typed TS in `src/content/chapters/` — one
+module per chapter, declared `: Chapter` against `src/content/types.ts`, and
+aggregated in `index.ts` as `chapters: Chapter[]`. Adding a chapter = new module
++ one import line in `index.ts`. `parentGroupChat` is a `JoinMethod` discriminated
+union (link/qr/code/other) — handle every variant. Page copy (role descriptions,
+start-a-chapter steps, contact) lives in `content/content.json`. Edit wording and
+links in these files, never hardcode them in components, and don't reintroduce
+hardcoded team arrays.
+
+
 ## Accessibility — a core project goal
 
 **Accessibility is a primary, non-negotiable goal of this site.** Every change must keep the site fully usable by keyboard and assistive technology. Target **WCAG 2.1 AA**. When adding or editing UI, treat the following as requirements, not nice-to-haves:

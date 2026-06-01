@@ -72,7 +72,7 @@ const QuotesSlide = () => {
 			aria-roledescription="carousel"
 			aria-label="Quote testimonials"
 		>
-			<div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-slate-100 shadow-xl h-[430px] md:h-[460px]">
+			<div className="relative overflow-hidden rounded-2xl border border-deep-ocean/10 bg-gradient-to-br from-white via-white to-sand-dollar/40 shadow-[0_24px_60px_-30px_rgba(30,64,175,0.45)] h-[430px] md:h-[460px]">
 				{slides.map((src, i) => (
 					<div
 						key={i}
@@ -82,20 +82,20 @@ const QuotesSlide = () => {
 					>
 						<div className="h-full w-full px-12 md:px-20 lg:px-24 py-8 md:py-10 flex flex-col">
 							<div className="flex-1 flex items-center">
-								<blockquote className="relative w-full max-w-3xl mx-auto text-lg md:text-2xl leading-relaxed font-medium text-slate-800 px-8 md:px-10">
-									<span className="absolute left-0 -top-6 text-5xl md:text-6xl leading-none text-slate-300 font-serif select-none" aria-hidden="true">
+								<blockquote className="relative w-full max-w-3xl mx-auto text-lg md:text-2xl leading-relaxed font-medium text-gray px-8 md:px-10">
+									<span className="absolute left-0 -top-6 text-5xl md:text-6xl leading-none text-crab/40 font-serif select-none" aria-hidden="true">
 										“
 									</span>
 									{src.text}
-									<span className="absolute right-0 -bottom-8 text-5xl md:text-6xl leading-none text-slate-300 font-serif select-none" aria-hidden="true">
+									<span className="absolute right-0 -bottom-8 text-5xl md:text-6xl leading-none text-crab/40 font-serif select-none" aria-hidden="true">
 										”
 									</span>
 								</blockquote>
 							</div>
-							<div className="mt-3 border-t border-slate-200 pt-4">
-								<p className="text-sm md:text-base font-semibold tracking-wide text-slate-900 uppercase">{src.name}</p>
+							<div className="mt-3 border-t border-deep-ocean/10 pt-4">
+								<p className="text-sm md:text-base font-semibold tracking-wide text-deep-ocean uppercase">{src.name}</p>
 								{src.date && (
-									<p className="text-xs md:text-sm text-slate-500 mt-1">{src.date}</p>
+									<p className="text-xs md:text-sm text-gray/70 mt-1">{src.date}</p>
 								)}
 							</div>
 						</div>
@@ -108,7 +108,7 @@ const QuotesSlide = () => {
 							type="button"
 							onClick={prev}
 							aria-label="Previous quote"
-							className="absolute left-5 md:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-slate-700 border border-slate-200 shadow-sm transition flex items-center justify-center cursor-pointer"
+							className="absolute left-5 md:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-deep-ocean hover:text-crab border border-deep-ocean/15 shadow-sm transition flex items-center justify-center cursor-pointer"
 						>
 							<svg aria-hidden="true" className="w-4 h-4" viewBox="0 0 20 20" fill="none">
 								<path d="M12.5 4.5L7 10l5.5 5.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -118,7 +118,7 @@ const QuotesSlide = () => {
 							type="button"
 							onClick={next}
 							aria-label="Next quote"
-							className="absolute right-5 md:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-slate-700 border border-slate-200 shadow-sm transition flex items-center justify-center cursor-pointer"
+							className="absolute right-5 md:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-white text-deep-ocean hover:text-crab border border-deep-ocean/15 shadow-sm transition flex items-center justify-center cursor-pointer"
 						>
 							<svg aria-hidden="true" className="w-4 h-4" viewBox="0 0 20 20" fill="none">
 								<path d="M7.5 4.5L13 10l-5.5 5.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -133,7 +133,7 @@ const QuotesSlide = () => {
 							key={i}
 							type="button"
 							aria-label={`Show slide ${i + 1}`}
-							className={`h-2.5 rounded-full p-0 transition-all duration-300 focus:outline-none ring-2 ring-transparent focus:ring-blue-300 ${i === index ? 'w-8 bg-slate-800' : 'w-2.5 bg-white/90 border border-slate-300 hover:bg-slate-200'
+							className={`h-2.5 rounded-full p-0 transition-all duration-300 focus:outline-none ring-2 ring-transparent focus:ring-crab ${i === index ? 'w-8 bg-crab' : 'w-2.5 bg-deep-ocean/20 border border-deep-ocean/30 hover:bg-deep-ocean/40'
 								}`}
 							onClick={() => setIndex(i)}
 						/>
